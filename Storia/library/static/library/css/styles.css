@@ -1,0 +1,19 @@
+/* feel free to make your page prettier! */
+
+body {
+    font: 16px/1.5 Helvetica, Arial, Sans-Serif;
+    padding: 0 1em;
+}
+
+#result {
+    background: #ccc;
+    border: solid 1px black;
+    padding: 1em;
+}
+
+.error {
+    background: #c00;
+    color: white;
+    margin: 1em 0;
+    padding: 0.5em 1em;
+}
