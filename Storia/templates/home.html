@@ -1,0 +1,28 @@
+{%  extends "base.html" %}
+
+
+{% load static %}
+{% block extra_head %}
+    <link href="{% static "css/book.css" %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% include "nav.html" %}
+
+{# Top #}
+{%  block headline %}
+    <h1>Welcome to Storia</h1>
+{%  endblock %}
+
+{# Middle #}
+{%  block main %}
+    <ul>
+        <li>Stories to learn to read.</li>
+
+    </ul>
+{%  endblock %}
+
+{# Bottom #}
+{%  block footer %}
+    <p>Contact me!</p>
+{%  endblock %}

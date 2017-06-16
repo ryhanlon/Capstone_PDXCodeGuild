@@ -3,21 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    {% block extra_head %}
+
+    {% endblock %}
+
+
 </head>
 <body>
-    {% include "nav.html" %}
+    <main>
+        <nav>
+        {% include "nav.html" %}
+        </nav>
 
-    {# Top #}
-    {%  block headline %}
-    {%  endblock %}
+        <section>
 
-    {# Middle #}
-    {%  block main %}
-    {%  endblock %}
+        <header>
+            {# Top #}
+            {%  block headline %}
+            {%  endblock %}
+        </header>
 
-    {# Bottom #}
-    {%  block footer %}
-    {%  endblock %}
+        <article>
+            {# Middle #}
+            {%  block main %}
+            {%  endblock %}
+        </article>
+
+            <footer>
+            {# Bottom #}
+            {%  block footer %}
+            {%  endblock %}
+            </footer>
+
+        </section>
+
+    </main>
 
 </body>
 </html>
