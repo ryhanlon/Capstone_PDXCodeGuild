@@ -1,6 +1,5 @@
 from django.shortcuts import render
-
-# Create your views here.
+from .models import Media, MediaImage
 
 
 def home(request):
@@ -8,6 +7,11 @@ def home(request):
     landing page template view
 
     """
+
+    slider_images = Media.objects.filter()
+
+
+
     return render(request, 'home.html')
 
 

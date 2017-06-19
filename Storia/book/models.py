@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # class BookPage(models.Model):
 #     """
@@ -11,13 +11,42 @@ from django.db import models
 #     content =
 
 
-class MediaBookPage(models.Model):
+class Media(models.Model):
     """
-    Stores the media for the each story page (images, video, audio).
+    Stores the media for html pages (web pages, storybook pages, game pages).
+
     """
-    video = models.FileField(upload_to='', null=True)
-    audio = models.FileField(upload_to='', null=True)
-    image = models.ImageField(upload_to='', null=True)
+    PAGE_TYPE = (
+        ('BPG', 'book page'),
+        ('WPG', 'web page'),
+        ('GPG', 'game page'),
+    )
+
+    name = models.CharField(max_length=256)
+    slug = models.SlugField(editable=False, blank=True)
+    caption = models.CharField(max_length=62, blank=True, null=True)
+    type = models.CharField(max_length=3, choices=PAGE_TYPE)
+    created = models.DateTimeField()
+    modified = models.DateTimeField()
+    file = models.FileField(blank=True, null=True)  # TODO: upload to
+
+    class Meta:
+        verbose_name_plural = 'media'
+
+    def __str__(self):
+        return self.name
+
+
+class MediaImage(Media):
+    """
+    Stores the media for each story page (images, video, audio).
+    """
+
+    image = models.ImageField(blank=True, null=True)     # TODO: upload to
+    alt_text = models.TextField(max_length=500)
+
+    def __str__(self):
+        return self.name
 
 
 class Book(models.Model):
@@ -35,6 +64,9 @@ class Book(models.Model):
     isbn = models.CharField(max_length=17)
     created = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.title
+
 
 class Interaction(models.Model):
     """
@@ -42,9 +74,17 @@ class Interaction(models.Model):
     words clicked, audio clicked, videos clicked.
     """
     # data from the page
+    INTERACTION_TYPE = (
+        ('WDC', 'word clicks'),
+        ('VDC', 'video clicks'),
+        ('ADC', 'audio clicks'),
+    )
+
     start = models.DateTimeField()
     duration = models.DurationField()
     end = models.DateTimeField()
-    word_clicks = models.PositiveSmallIntegerField()
-    video_clicks = models.PositiveSmallIntegerField()
-    audio_clicks = models.PositiveSmallIntegerField()
+    type = models.CharField(max_length=3, choices=INTERACTION_TYPE)
+    actor = models.ForeignKey(User, related_name='interactions')
+
+    def __str__(self):
+        return self.type
