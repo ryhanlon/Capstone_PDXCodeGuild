@@ -29,7 +29,7 @@ class Media(models.Model):
     type = models.CharField(max_length=3, choices=PAGE_TYPE)
     created = models.DateTimeField()
     modified = models.DateTimeField()
-    file = models.FileField(blank=True, null=True)  # TODO: upload to
+    file = models.FileField(upload_to='static/images', blank=True, null=True)  # TODO: upload to
 
     class Meta:
         verbose_name_plural = 'media'
@@ -43,7 +43,7 @@ class MediaImage(Media):
     Stores the media for each story page (images, video, audio).
     """
 
-    image = models.ImageField(blank=True, null=True)     # TODO: upload to
+    image = models.ImageField(upload_to='static/images', blank=True, null=True)     # TODO: upload to
     alt_text = models.TextField(max_length=500)
 
     def __str__(self):

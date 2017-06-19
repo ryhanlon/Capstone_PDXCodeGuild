@@ -4,7 +4,7 @@ from .models import Media, MediaImage
 
 def home(request):
     """
-    landing page template view
+    landing page template view, slider/carousel
 
     """
 

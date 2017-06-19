@@ -1,3 +1,6 @@
+
+/*---------- Bootstrap css, nav -----------*/
+
 /*
  * Start Bootstrap - Full (http://startbootstrap.com/)
  * Copyright 2013-2016 Start Bootstrap
@@ -18,8 +21,12 @@ body {
     -o-background-size: cover;
 }
 
-/*-------------------------------
---------------------------------*/
+/*---------- Bootstrap css, slider (home.html) -----------*/
+
+.carousel-caption {
+    background-color: black !important;
+
+}
 
 body {
     background-color: green;

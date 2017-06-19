@@ -13,24 +13,33 @@
 
         <!-- Wrapper for Slides -->
         <div class="carousel-inner">
-            <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
-                </div>
-            </div>
 
 
-        {#---- For loop for the carousel. ----#}
-            {%  for item in slider_images %}
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
-                <div class="carousel-caption">
-                    <h2>{{ item.caption }}</h2>
+
+            {#---- For loop for the carousel. ----#}
+            {% for item in slider_images %}
+
+                {% if forloop.first %}
+                    <div class="item active">
+                        <!-- Set the first background image using inline CSS below. -->
+                        <div class="fill"
+                             style="background-image:url({{ item.file.url }});"></div>
+                        <div class="carousel-caption">
+                            <h2>{{ item.caption }}</h2>
+                        </div>
+                    </div>
+                {% else %}
+
+
+                <div class="item">
+                    <!-- Set the second background image using inline CSS below. -->
+                    <div class="fill" style="background-image:url({{ item.file.url }});"></div>
+                    <div class="carousel-caption">
+                        <h2>{{ item.caption }}</h2>
+                    </div>
                 </div>
-            </div>
+                {% endif %}
+
             {% endfor %}
 
         </div>
