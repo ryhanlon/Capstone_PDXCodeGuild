@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from book.views import home
+from book.views import home, about, contact
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -23,5 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
+    url(r'^contact', contact, name='contact'),
+    url(r'^about', about, name='about'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
