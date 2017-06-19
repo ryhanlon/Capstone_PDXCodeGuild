@@ -1,14 +1,14 @@
 from django.db import models
 
 
-class BookPage(models.Model):
-    """
-    Stores the number of pages and format for each page of the story.  (Title page, 1-12 story pages, 'the end' page)
-    """
-    play_icon =
-    stop_icon =
-    pause_icon =
-    content =
+# class BookPage(models.Model):
+#     """
+#     Stores the number of pages and format for each page of the story.  (Title page, 1-12 story pages, 'the end' page)
+#     """
+#     play_icon =
+#     stop_icon =
+#     pause_icon =
+#     content =
 
 
 class MediaBookPage(models.Model):
