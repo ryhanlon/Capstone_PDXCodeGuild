@@ -8,11 +8,11 @@ def home(request):
 
     """
 
-    slider_images = Media.objects.filter()
+    slider_images = Media.objects.filter(location='carousel')
 
+    context = {'slider_images': slider_images}
 
-
-    return render(request, 'home.html')
+    return render(request, 'home.html', context)
 
 
 def contact(request):

@@ -24,6 +24,7 @@ class Media(models.Model):
 
     name = models.CharField(max_length=256)
     slug = models.SlugField(editable=False, blank=True)
+    location = models.CharField(max_length=50)
     caption = models.CharField(max_length=62, blank=True, null=True)
     type = models.CharField(max_length=3, choices=PAGE_TYPE)
     created = models.DateTimeField()
