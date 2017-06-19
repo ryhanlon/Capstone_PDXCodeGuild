@@ -18,6 +18,7 @@ def contact(request):
     """
     return render(request, 'contact.html')
 
+
 def about(request):
     """
     landing page template view
