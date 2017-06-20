@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'incites.apps.IncitesConfig',
     'book.apps.BookConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -131,4 +132,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "incites", "static"),
     os.path.join(BASE_DIR, "accounts", "static"),
 ]
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 

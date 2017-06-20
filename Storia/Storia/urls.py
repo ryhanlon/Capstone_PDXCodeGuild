@@ -13,17 +13,29 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from book.views import home, about, contact
 
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers
+from accounts.api import UserViewSet
+from book.api import InteractionViewSet
+
+# Routers provide an easy way of automatically determining the URL conf.
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'interactions', InteractionViewSet)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
     url(r'^contact', contact, name='contact'),
     url(r'^about', about, name='about'),
+
+    url(r'^api/v1/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -11,6 +11,15 @@ from django.contrib.auth.models import User
 #     content =
 
 
+def media_upload_handler(instance, filename) -> str:
+    """
+    Handler to provide link to media images
+
+    """
+
+    return f"{instance.}/{collection}/{filename}"
+
+
 class Media(models.Model):
     """
     Stores the media for html pages (web pages, storybook pages, game pages).
@@ -29,7 +38,8 @@ class Media(models.Model):
     type = models.CharField(max_length=3, choices=PAGE_TYPE)
     created = models.DateTimeField()
     modified = models.DateTimeField()
-    file = models.FileField(upload_to='static/images', blank=True, null=True)  # TODO: upload to
+    file = models.FileField(upload_to=media_upload_handler, blank=True, null=True)
+    image = models.ImageField(upload_to=media_upload_handle, blank =True, null=True)
 
     class Meta:
         verbose_name_plural = 'media'
@@ -38,16 +48,16 @@ class Media(models.Model):
         return self.name
 
 
-class MediaImage(Media):
-    """
-    Stores the media for each story page (images, video, audio).
+class BookMedia(Media):
     """
 
-    image = models.ImageField(upload_to='static/images', blank=True, null=True)     # TODO: upload to
-    alt_text = models.TextField(max_length=500)
 
-    def __str__(self):
-        return self.name
+    """
+
+    author = 
+    artist = models.CharField(max_length=256)
+
+
 
 
 class Book(models.Model):
