@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Media, MediaImage
+from .models import Media, BookMedia
 
 
 def home(request):
@@ -29,6 +29,3 @@ def about(request):
 
     """
     return render(request, 'about.html')
-
-
-

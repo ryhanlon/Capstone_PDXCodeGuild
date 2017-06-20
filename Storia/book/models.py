@@ -1,62 +1,27 @@
 from django.db import models
 from django.contrib.auth.models import User
-
-# class BookPage(models.Model):
-#     """
-#     Stores the number of pages and format for each page of the story.  (Title page, 1-12 story pages, 'the end' page)
-#     """
-#     play_icon =
-#     stop_icon =
-#     pause_icon =
-#     content =
-
-
-def media_upload_handler(instance, filename) -> str:
-    """
-    Handler to provide link to media images
-
-    """
-
-    return f"{instance.}/{collection}/{filename}"
-
-
-class Media(models.Model):
-    """
-    Stores the media for html pages (web pages, storybook pages, game pages).
-
-    """
-    PAGE_TYPE = (
-        ('BPG', 'book page'),
-        ('WPG', 'web page'),
-        ('GPG', 'game page'),
-    )
-
-    name = models.CharField(max_length=256)
-    slug = models.SlugField(editable=False, blank=True)
-    location = models.CharField(max_length=50)
-    caption = models.CharField(max_length=62, blank=True, null=True)
-    type = models.CharField(max_length=3, choices=PAGE_TYPE)
-    created = models.DateTimeField()
-    modified = models.DateTimeField()
-    file = models.FileField(upload_to=media_upload_handler, blank=True, null=True)
-    image = models.ImageField(upload_to=media_upload_handle, blank =True, null=True)
-
-    class Meta:
-        verbose_name_plural = 'media'
-
-    def __str__(self):
-        return self.name
+from page.models import Media
 
 
 class BookMedia(Media):
     """
-
+    Stores media for the storybook and game to be animated.
 
     """
+    PAGE_TYPE = (
+        ('BPG', 'book page'),
+        ('GPG', 'game page'),
+        ('DPG', 'dashboard page'),
+    )
 
-    author = 
-    artist = models.CharField(max_length=256)
+    visual_artist = models.CharField(max_length=256)
+    animator = models.CharField(max_length=256, blank=True, null=True)
+    composer = models.CharField(max_length=256, blank=True, null=True)
+    type = models.CharField(max_length=3, choices=PAGE_TYPE)
+    content_text = models.TextField(max_length=5000)
 
+    def __str__(self):
+        return self.title
 
 
 
@@ -68,11 +33,12 @@ class Book(models.Model):
 
     title = models.CharField(max_length=256)
     author = models.CharField(max_length=256)
+    publisher = models.CharField(max_length=256)
     pub_date = models.CharField(max_length=64)
     copyright = models.CharField(max_length=64)
-    reading_level = models.CharField(max_length=32)
-    word_count = models.CharField(max_length=32)
     isbn = models.CharField(max_length=17)
+    reading_level = models.CharField(max_length=32)
+    word_count = models.CharField(max_length=5)
     created = models.DateTimeField(auto_now=True)
 
     def __str__(self):
