@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from accounts.models import User
 
 
 class BookMedia(models.Model):
@@ -8,7 +8,7 @@ class BookMedia(models.Model):
 
     """
     PAGE_TYPE = (
-        ('BPG', 'pages pages'),
+        ('BPG', 'book pages'),
         ('GPG', 'game pages'),
         ('DPG', 'dashboard pages'),
     )
@@ -20,15 +20,15 @@ class BookMedia(models.Model):
     type = models.CharField(max_length=3, choices=PAGE_TYPE)
     slug = models.SlugField(editable=False, blank=True)
     location = models.CharField(max_length=50)
-    created = models.DateTimeField()
-    modified = models.DateTimeField()
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
 
     content_text = models.TextField(max_length=5000)
     file = models.FileField(blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
-        return self.title
+        return self.type
 
 
 class Book(models.Model):
@@ -46,7 +46,8 @@ class Book(models.Model):
     isbn = models.CharField(max_length=17)
     reading_level = models.CharField(max_length=32)
     word_count = models.CharField(max_length=5)
-    created = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -54,7 +55,7 @@ class Book(models.Model):
 
 class Interaction(models.Model):
     """
-    Stores the date captured during the pages interaction: time on the pages,
+    Stores the types of actions captured during the pages interaction: time on the pages,
     words clicked, audio clicked, videos clicked.
     """
     # data from the pages

@@ -60,7 +60,9 @@ ROOT_URLCONF = 'Storia.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'accounts', 'templates'),
+                 ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -86,6 +88,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+# Custom User Model
+AUTH_USER_MODEL = 'accounts.User'
 
 
 # Password validation

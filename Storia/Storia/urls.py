@@ -30,10 +30,14 @@ router.register(r'interactions', InteractionViewSet)
 
 
 urlpatterns = [
+    # Admin
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
-    url(r'^contact', contact, name='contact'),
-    url(r'^about', about, name='about'),
+    url(r'^contact/$', contact, name='contact'),
+    url(r'^about/$', about, name='about'),
+
+    # Accounts
+    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
 
     url(r'^api/v1/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),

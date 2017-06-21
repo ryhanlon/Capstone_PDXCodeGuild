@@ -12,15 +12,15 @@ from django.db import models
 
 class Media(models.Model):
     """
-    Stores the media for html pages (web pages, storybook pages, game pages).
+    Stores the media for each web page (html, website centered).
 
     """
 
     name = models.CharField(max_length=256)
     slug = models.SlugField(editable=False, blank=True)
     location = models.CharField(max_length=50)
-    created = models.DateTimeField()
-    modified = models.DateTimeField()
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
 
     caption = models.CharField(max_length=62, blank=True, null=True)
     file = models.FileField(blank=True, null=True)
@@ -36,7 +36,7 @@ class Media(models.Model):
 
 class Page(models.Model):
     """
-    Set up the web pages.
+    Identifies the web page.  Text field for the main text for the page(optional).
 
     """
 
@@ -44,4 +44,4 @@ class Page(models.Model):
     content = models.TextField(max_length=500, blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.web_page_name
