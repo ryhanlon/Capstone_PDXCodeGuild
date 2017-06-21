@@ -1,13 +1,26 @@
 from django.db import models
 
 
-# def media_upload_handler(instance, filename) -> str:
-#     """
-#     Handler to provide link to media images
-#
-#     """
-#
-#     return f"{instance}/{Media}/{filename}"
+def media_upload_handler(instance, filename) -> str:
+    """
+    Handler to provide link to media images
+
+    """
+
+    return f"{instance.page.name}/{filename}"
+
+class Page(models.Model):
+    """
+    Identifies the web page.  Text field for the main text for the page(optional).
+
+    """
+
+    name = models.CharField(max_length=256)
+    slug = models.SlugField(editable=False, blank=True)
+    content = models.TextField(max_length=500, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Media(models.Model):
@@ -16,15 +29,16 @@ class Media(models.Model):
 
     """
 
+    page = models.ForeignKey(Page, related_name='contents')
     name = models.CharField(max_length=256)
     slug = models.SlugField(editable=False, blank=True)
-    location = models.CharField(max_length=50)
+    location = models.CharField(max_length=50, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
     caption = models.CharField(max_length=62, blank=True, null=True)
-    file = models.FileField(blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
+    file = models.FileField(upload_to=media_upload_handler, blank=True, null=True)
+    image = models.ImageField(upload_to=media_upload_handler, blank=True, null=True)
 
 
     class Meta:
@@ -34,14 +48,3 @@ class Media(models.Model):
         return self.name
 
 
-class Page(models.Model):
-    """
-    Identifies the web page.  Text field for the main text for the page(optional).
-
-    """
-
-    name = models.CharField(max_length=256)
-    content = models.TextField(max_length=500, blank=True, null=True)
-
-    def __str__(self):
-        return self.web_page_name

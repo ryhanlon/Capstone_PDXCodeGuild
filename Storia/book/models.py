@@ -1,5 +1,32 @@
 from django.db import models
 from accounts.models import User
+from pages.models import Page
+
+
+class Book(models.Model):
+    """
+    Stores the publishing information for the pages: title, author, pubdate,
+    copyright, reading level, word count, isbn.
+
+    """
+
+    title = models.CharField(max_length=256)
+    author = models.CharField(max_length=256)
+    publisher = models.CharField(max_length=256)
+    pub_date = models.CharField(max_length=64)
+    copyright = models.CharField(max_length=64)
+    isbn = models.CharField(max_length=17)
+
+    reading_level = models.CharField(max_length=32)
+    word_count = models.CharField(max_length=5)
+
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+    slug = models.SlugField(editable=False, blank=True)
+    webpage = models.ForeignKey(Page, related_name='books', blank=True, null=True)
+
+    def __str__(self):
+        return self.title
 
 
 class BookMedia(models.Model):
@@ -19,7 +46,7 @@ class BookMedia(models.Model):
 
     type = models.CharField(max_length=3, choices=PAGE_TYPE)
     slug = models.SlugField(editable=False, blank=True)
-    location = models.CharField(max_length=50)
+    book = models.ForeignKey(Book, related_name='visuals')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
@@ -29,28 +56,6 @@ class BookMedia(models.Model):
 
     def __str__(self):
         return self.type
-
-
-class Book(models.Model):
-    """
-    Stores the publishing information for the pages: title, author, pubdate,
-    copyright, reading level, word count, isbn.
-
-    """
-
-    title = models.CharField(max_length=256)
-    author = models.CharField(max_length=256)
-    publisher = models.CharField(max_length=256)
-    pub_date = models.CharField(max_length=64)
-    copyright = models.CharField(max_length=64)
-    isbn = models.CharField(max_length=17)
-    reading_level = models.CharField(max_length=32)
-    word_count = models.CharField(max_length=5)
-    created = models.DateTimeField(auto_now_add=True)
-    modified = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.title
 
 
 class Interaction(models.Model):
@@ -65,11 +70,15 @@ class Interaction(models.Model):
         ('ADC', 'audio clicks'),
     )
 
+    slug = models.SlugField(editable=False, blank=True)
+    book_media = models.ForeignKey(BookMedia, related_name='design')
+
     start = models.DateTimeField()
     duration = models.DurationField()
     end = models.DateTimeField()
     type = models.CharField(max_length=3, choices=INTERACTION_TYPE)
     actor = models.ForeignKey(User, related_name='interactions')
+
 
     def __str__(self):
         return self.type
