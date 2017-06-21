@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'incites.apps.IncitesConfig',
     'book.apps.BookConfig',
+    'pages.apps.PagesConfig',
     'rest_framework',
-    'page.apps.PageConfig',
 ]
 
 MIDDLEWARE = [
@@ -132,7 +132,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "library", "static"),
     os.path.join(BASE_DIR, "incites", "static"),
     os.path.join(BASE_DIR, "accounts", "static"),
-    os.path.join(BASE_DIR, "page", "static"),
+    os.path.join(BASE_DIR, "pages", "static"),
 ]
 
 
