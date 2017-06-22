@@ -96,3 +96,6 @@ ENV/
 # Rope project settings
 .ropeproject
 
+# media folder added, don't want to upload media
+media/
+Storia/media/
