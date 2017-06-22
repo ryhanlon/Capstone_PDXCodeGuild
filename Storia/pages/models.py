@@ -9,6 +9,7 @@ def media_upload_handler(instance, filename) -> str:
 
     return f"{instance.page.name}/{filename}"
 
+
 class Page(models.Model):
     """
     Identifies the web page.  Text field for the main text for the page(optional).

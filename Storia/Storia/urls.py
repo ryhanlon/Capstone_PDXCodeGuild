@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from pages.views import home, about, contact
+from pages.views import  home, about, contact
+from book.views import display_book
+
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -42,8 +44,13 @@ urlpatterns = [
     url(r'^api/v1/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
+    # Books
+    # url(r'^book/create/', create_book, name='create_book'),
+    url(r'^book/(?P<slug>\w+)', display_book, name='display_book'),
+
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

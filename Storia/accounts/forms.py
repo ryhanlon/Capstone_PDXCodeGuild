@@ -5,6 +5,10 @@ from .models import User
 
 
 class CustomUserCreationForm(UserCreationForm):
+    """
+
+
+    """
     nickname = forms.RegexField(label=('Nickname'), max_length=300,
                                 regex=r'^[\w.@+\s]+$')
     class Meta(UserCreationForm):

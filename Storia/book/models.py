@@ -1,7 +1,16 @@
 from django.db import models
 from accounts.models import User
 from pages.models import Page
+from django.utils.text import slugify
 
+
+def media_upload_handler(instance, filename) -> str:
+    """
+    Handler to provide link to media images
+
+    """
+
+    return f"{instance.page.name}/{filename}"
 
 class Book(models.Model):
     """
@@ -13,20 +22,28 @@ class Book(models.Model):
     title = models.CharField(max_length=256)
     author = models.CharField(max_length=256)
     publisher = models.CharField(max_length=256)
-    pub_date = models.CharField(max_length=64)
-    copyright = models.CharField(max_length=64)
-    isbn = models.CharField(max_length=17)
+    pub_date = models.CharField(max_length=64, blank=True, null=True)
+    copyright = models.CharField(max_length=64, blank=True, null=True)
+    isbn = models.CharField(max_length=17, blank=True, null=True)
 
-    reading_level = models.CharField(max_length=32)
-    word_count = models.CharField(max_length=5)
+    reading_level = models.CharField(max_length=32, blank=True, null=True)
+    word_count = models.CharField(max_length=5, blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
-    slug = models.SlugField(editable=False, blank=True)
+    slug = models.SlugField(editable=False, blank=True, null=True)
     webpage = models.ForeignKey(Page, related_name='books', blank=True, null=True)
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        """
+
+        """
+        self.slug = slugify(self.title)
+
+        super().save(*args, **kwargs)
 
 
 class BookMedia(models.Model):
@@ -51,8 +68,8 @@ class BookMedia(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     content_text = models.TextField(max_length=5000)
-    file = models.FileField(blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
+    file = models.FileField(upload_to=media_upload_handler, blank=True, null=True)
+    image = models.ImageField(upload_to=media_upload_handler, blank=True, null=True)
 
     def __str__(self):
         return self.type

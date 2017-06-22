@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Book
+
 # from .models import Media, BookMedia
 #
 #
@@ -14,18 +16,12 @@ from django.shortcuts import render
 #
 #     return render(request, 'home.html', context)
 #
-#
-# def contact(request):
-#     """
-#     landing pages template view
-#
-#     """
-#     return render(request, 'contact.html')
-#
-#
-# def about(request):
-#     """
-#     landing pages template view
-#
-#     """
-#     return render(request, 'about.html')
+
+def display_book(request, slug):
+    """
+    To display a book.
+
+    """
+    book = Book.objects.get(slug=slug)
+    context = {'book': book}
+    return render(request, 'display_book.html', context)
