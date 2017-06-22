@@ -34,11 +34,15 @@ body {
 
 main {
     height: 100vh;
-    background-color: #1b6d85;
+    background-color: rgba(27, 109, 133, .2);
 
 }
 
 footer {
     background-color: white;
 
+}
+
+.shelf{
+    margin: 50px 100px;
 }

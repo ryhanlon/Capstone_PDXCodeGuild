@@ -22,6 +22,7 @@
         <option value="$MODULE_DIR$/Storia/templates" />
         <option value="$MODULE_DIR$/Storia/accounts/templates" />
         <option value="$MODULE_DIR$/Storia/book/templates" />
+        <option value="$MODULE_DIR$/Storia/pages/templates" />
       </list>
     </option>
   </component>

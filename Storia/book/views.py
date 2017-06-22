@@ -17,11 +17,24 @@ from .models import Book
 #     return render(request, 'home.html', context)
 #
 
+
 def display_book(request, slug):
     """
     To display a book.
 
     """
+
     book = Book.objects.get(slug=slug)
     context = {'book': book}
-    return render(request, 'display_book.html', context)
+    return render(request, 'book/display_book.html', context)
+
+
+def bookshelf(request):
+    """
+    Choose which storybook one wants to read.
+
+    """
+
+    books = Book.objects.all()
+    context = {'books': books}
+    return render(request, 'book/bookshelf.html', context)

@@ -1,0 +1,14 @@
+{%  extends 'base.html' %}
+{% load static %}
+
+
+{% block feature %}
+    <section class="shelf">
+        {% for book in books %}
+
+          <h1>
+            {{ book.title }}
+          </h1>
+        {% endfor %}
+    </section>
+{% endblock %}

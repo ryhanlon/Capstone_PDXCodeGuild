@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+{% load static %}
+
 <head>
 
     <meta charset="utf-8">
@@ -11,13 +13,13 @@
 
     <title>Storia</title>
 
-    <link href="static/css/styles.css" rel="stylesheet">
+    <link href="{% static "css/styles.css" %}" rel="stylesheet">
 
         <!-- Bootstrap Core CSS -->
-     <link href="static/vendor/bootstrap.min.css" rel="stylesheet">
+     <link href="{% static "vendor/bootstrap.min.css" %}" rel="stylesheet">
 
         <!-- Custom CSS -->
-    <link href="static/vendor/full-slider.css" rel="stylesheet">
+    <link href="{% static "vendor/full-slider.css" %}" rel="stylesheet">
 {#    {% load static %}#}
 {#        {% block extra_head %}#}
 {##}
@@ -50,7 +52,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="#">Storia</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -109,10 +111,10 @@
 
 
     <!-- jQuery -->
-    <script src="static/vendor/jquery.js"></script>
+    <script src="{% static "static/vendor/jquery.js" %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="static/vendor/bootstrap.min.js"></script>
+    <script src="{% static "vendor/bootstrap.min.js" %}"></script>
 
     {% block script %}
     {% endblock %}

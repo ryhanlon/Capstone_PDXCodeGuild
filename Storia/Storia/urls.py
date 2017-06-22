@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from pages.views import  home, about, contact
-from book.views import display_book
+from book.views import display_book, bookshelf
+
 
 
 from django.conf import settings
@@ -46,7 +47,8 @@ urlpatterns = [
 
     # Books
     # url(r'^book/create/', create_book, name='create_book'),
-    url(r'^book/(?P<slug>\w+)', display_book, name='display_book'),
+    url(r'^books/bookshelf', bookshelf, name='bookshelf'),
+    url(r'^book/(?P<slug>[a-z0-9\-]+)', display_book, name='display_book'),
 
 ]
 
