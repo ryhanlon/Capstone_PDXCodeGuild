@@ -7,7 +7,7 @@
         {% for book in books %}
 
           <h1>
-            {{ book.title }}
+              <a href="/books/{{ book.slug }}">{{ book.title }}</a>
           </h1>
         {% endfor %}
     </section>

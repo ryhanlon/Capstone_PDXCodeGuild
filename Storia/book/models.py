@@ -12,6 +12,7 @@ def media_upload_handler(instance, filename) -> str:
 
     return f"{instance.page.name}/{filename}"
 
+
 class Book(models.Model):
     """
     Stores the publishing information for the pages: title, author, pubdate,
@@ -37,13 +38,37 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def page_count(self):
+        """
+        Gets the page count of a book.  Reverse lookup for BookPage.
+        """
+        pages = len(self.pages.all())
+        return pages
+
     def save(self, *args, **kwargs):
         """
-
+        Slug for urls.
         """
         self.slug = slugify(self.title)
 
         super().save(*args, **kwargs)
+
+
+class BookPage(models.Model):
+    """
+    Template for the story pages.
+    """
+    book = models.ForeignKey(Book, related_name='pages')
+    name = models.CharField(max_length=245, blank=True, null=True)
+    is_title_page = models.BooleanField(default=False)
+    page_order = models.PositiveSmallIntegerField(blank=True, null=True)
+    content = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
 
 
 class BookMedia(models.Model):
@@ -63,7 +88,7 @@ class BookMedia(models.Model):
 
     type = models.CharField(max_length=3, choices=PAGE_TYPE)
     slug = models.SlugField(editable=False, blank=True)
-    book = models.ForeignKey(Book, related_name='visuals')
+    bookpage = models.ForeignKey(BookPage, related_name='visuals')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
@@ -95,7 +120,6 @@ class Interaction(models.Model):
     end = models.DateTimeField()
     type = models.CharField(max_length=3, choices=INTERACTION_TYPE)
     actor = models.ForeignKey(User, related_name='interactions')
-
 
     def __str__(self):
         return self.type

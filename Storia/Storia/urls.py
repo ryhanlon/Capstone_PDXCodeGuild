@@ -48,7 +48,7 @@ urlpatterns = [
     # Books
     # url(r'^book/create/', create_book, name='create_book'),
     url(r'^books/bookshelf', bookshelf, name='bookshelf'),
-    url(r'^book/(?P<slug>[a-z0-9\-]+)', display_book, name='display_book'),
+    url(r'^books/(?P<slug>[a-z0-9\-]+)', display_book, name='display_book'),
 
 ]
 
