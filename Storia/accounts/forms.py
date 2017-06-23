@@ -13,7 +13,7 @@ class CustomUserCreationForm(UserCreationForm):
                                 regex=r'^[\w.@+\s]+$')
     class Meta(UserCreationForm):
         model = User
-        fields = UserCreationForm.Meta.fields + ('nickname',)
+        fields = UserCreationForm.Meta.fields + ('nickname', 'email', )
 
 
 # class CustomUserChangeForm(UserChangeForm):

@@ -156,3 +156,28 @@ REST_FRAMEWORK = {
     ]
 }
 
+# Django outgoing email settings
+# https://docs.djangoproject.com/en/1.11/topics/email/
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ryhanlon'
+EMAIL_HOST_PASSWORD = os.environ['GMAIL_PASSWORD']  # configuring os environ variables
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = 'ryhanlon@gmail.com'
+
+# Temporary for demo
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#
+# else:
+#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+ADMINS = [('Rebecca', 'ryhanlon@gmailcom'),
+          ]
+

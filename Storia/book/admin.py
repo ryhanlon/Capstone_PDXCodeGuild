@@ -1,9 +1,19 @@
 from django.contrib import admin
-from .models import BookMedia, Book, Interaction
+from .models import BookMedia, Book, Interaction, BookPage
+from django.contrib import admin
 
-# Register your models here.
+
+class BookPageInline(admin.StackedInline):
+    model = BookPage
+
+
+class BookAdmin(admin.ModelAdmin):
+    inlines = [
+        BookPageInline,
+
+    ]
 
 admin.site.register(BookMedia)
-admin.site.register(Book)
+admin.site.register(Book, BookAdmin)
 admin.site.register(Interaction)
 
