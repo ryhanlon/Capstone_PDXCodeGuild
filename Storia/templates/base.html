@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 {% load static %}
 
+
+{# ------------------- Head ---------------------- #}
 <head>
 
     <meta charset="utf-8">
@@ -13,38 +16,40 @@
 
     <title>Storia</title>
 
-    <link href="{% static "css/styles.css" %}" rel="stylesheet">
-
-        <!-- Bootstrap Core CSS -->
+    <!-- Bootstrap Core CSS -->
      <link href="{% static "vendor/bootstrap.min.css" %}" rel="stylesheet">
 
-        <!-- Custom CSS -->
+    <!-- Custom CSS -->
+    <link href="{% static "css/styles.css" %}" rel="stylesheet">
+
+
+        <!-- slider css -->
     <link href="{% static "vendor/full-slider.css" %}" rel="stylesheet">
-{#    {% load static %}#}
-{#        {% block extra_head %}#}
-{##}
-{#    <!-- Bootstrap Core CSS -->#}
-{#    <link href="css/bootstrap.min.css" rel="stylesheet">#}
-{##}
-{#    <!-- Custom CSS -->#}
-{#    <link href="css/full-slider.css" rel="stylesheet">#}
-{##}
-{#        {% endblock %}#}
+
+    <!---- block for links ---->
+    {% block links %}
+    {% endblock %}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+
 </head>
+
+{# ------------------- BODY ---------------------- #}
+
 <body>
 
-    {#--- add navbar ---#}
+
+    <!------------- add navbar ------------>
     <section>
 
-        {% block nav %}
+        {% block navbar %}
 
         {% endblock %}
 
@@ -60,22 +65,12 @@
     </main>
 
 
-        <!-- Bottom of Tag Content -->
+    <!--------- Bottom of Tag Content ------->
     {% block tagline %}
-        <div class="container">
 
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <h1>Storia</h1>
-                    <p>Interactive stories to inspire children to read.</p>
-
-                </div>
-            </div>
-        </div>
     {% endblock %}
 
-         <!-- Footer -->
+         <!------ Footer ------>
         <hr>
         <footer>
             <div class="row">
@@ -93,6 +88,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "vendor/bootstrap.min.js" %}"></script>
 
+    <!---- block for scripts ---->
     {% block script %}
     {% endblock %}
 

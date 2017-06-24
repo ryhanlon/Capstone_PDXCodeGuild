@@ -1,0 +1,15 @@
+/*-----------------------------
+        (block) feature
+-----------------------------*/
+
+#container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    background-color: rgba(230, 178, 178, 0.9);
+    height: 35vh;
+    width: 25wh;
+}

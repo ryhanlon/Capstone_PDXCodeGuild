@@ -2,13 +2,39 @@
 {% load static %}
 
 
-{% block feature %}
-    <section class="shelf">
-        {% for book in books %}
+<head>
 
-          <h1>
-              <a href="/books/{{ book.slug }}">{{ book.title }}</a>
-          </h1>
-        {% endfor %}
+        {% block links %}
+            <link href="{% static "book/css/book.css" %}" rel="stylesheet">
+        {% endblock %}
+
+</head>
+    <!------------- add navbar ------------>
+    <section>
+
+        {% block navbar %}
+
+            {% include "navbar.html" %}
+
+        {% endblock %}
+
     </section>
+
+
+
+{% block feature %}
+    <main id="container">
+
+        <section class="shelf">
+            {% for book in books %}
+
+              <h1>
+                <img src="{{ book. }}">
+                  <a href="/books/{{ book.slug }}">{{ book.title }}</a>
+              </h1>
+            {% endfor %}
+        </section>
+
+    </main>
+
 {% endblock %}

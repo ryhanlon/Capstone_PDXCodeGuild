@@ -1,4 +1,12 @@
-<{%  extends 'base.html' %}
+{%  extends 'base.html' %}
+
+
+<!---------- Adds the navbar ---------->
+{% block navbar %}
+
+    {% include 'navbar.html' %}
+
+{% endblock %}
 
 
 {% block feature %}
@@ -7,7 +15,7 @@
     <header id="top" class="header">
         <div class="text-vertical-center">
             <h1>About</h1>
-            <h3>more info here</h3>
+            <h3>Nice to meet you.</h3>
             <br>
             <a href="#about" class="btn btn-dark btn-lg">Go back to story.</a>
         </div>
@@ -16,11 +24,18 @@
 {% endblock %}
 
 
-
-
+<!---------- Added the tagline ---------->
 {% block tagline %}
+    <div class="container">
 
-    <h1>Storia</h1>
-    <p>Interactive stories to inspire children to read.</p>
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h1>Storia</h1>
+                <p>Interactive stories to inspire children to read.</p>
+
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

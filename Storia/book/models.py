@@ -12,7 +12,13 @@ def media_upload_handler(instance, filename) -> str:
 
     return f"{instance.page.name}/{filename}"
 
+def cover_media_upload_handler(instance, filename) ->:
+    """
+    Handler to provide link to book covers.
 
+    """
+
+    return f"{instance.page.image}/{filename}"
 class Book(models.Model):
     """
     Stores the publishing information for the pages: title, author, pubdate,
@@ -21,6 +27,7 @@ class Book(models.Model):
     """
 
     title = models.CharField(max_length=256)
+    cover = models.ImageField(upload_to=)
     author = models.CharField(max_length=256)
     publisher = models.CharField(max_length=256)
     pub_date = models.CharField(max_length=64, blank=True, null=True)
