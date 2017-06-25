@@ -10,6 +10,34 @@
     align-items: center;
     align-content: space-around;
     background-color: rgba(230, 178, 178, 0.9);
+    height: 80vh;
+    width:80wh;
+}
+
+
+.shelf {
+    display: flex;
+    flex-direction: rpw;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    background-color: rgba(168, 200, 238, 0.9);
+    height: 45vh;
+    width: 35wh;
+}
+
+img {
+        display: flex;
+    flex-direction: rpw;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    background-color: rgba(139, 128, 75, 0.9);
     height: 35vh;
     width: 25wh;
+
+
+
 }
