@@ -64,6 +64,13 @@
 
     </main>
 
+    <main>
+
+        {% block video %}
+
+        {% endblock %}
+
+    </main>
 
     <!--------- Bottom of Tag Content ------->
     {% block tagline %}
@@ -87,6 +94,15 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "vendor/bootstrap.min.js" %}"></script>
+
+    <script>
+
+        var elem = document.getElementById("myvideo");
+        if (elem.requestFullscreen) {
+         elem.requestFullscreen();
+        }
+
+    </script>
 
     <!---- block for scripts ---->
     {% block script %}

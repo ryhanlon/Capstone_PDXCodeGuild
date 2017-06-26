@@ -10,7 +10,8 @@ def media_upload_handler(instance, filename) -> str:
 
     """
 
-    return f"{instance.page.name}/{filename}"
+    # return f"{instance.page.name}/{filename}"
+    return f"{instance.image}/{filename}"
 
 
 def cover_media_upload_handler(instance, filename) ->str:
