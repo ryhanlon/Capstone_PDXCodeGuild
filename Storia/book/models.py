@@ -4,23 +4,17 @@ from pages.models import Page
 from django.utils.text import slugify
 
 
-def media_upload_handler(instance, filename) -> str:
-    """
-    Handler to provide link to media images
-
-    """
-
-    # return f"{instance.page.name}/{filename}"
-    return f"{instance.image}/{filename}"
-
-
-def cover_media_upload_handler(instance, filename) ->str:
+def cover_media_upload_handler(instance, filename) -> str:
     """
     Handler to provide link to book covers.
 
     """
+    name, extention = filename.split('.')
+    name = slugify(name)
+    filepath = '.'.join([name, extention])
 
-    return f"{instance.cover}/{filename}"
+    path = f"{instance.slug}/{filepath}"
+    return path
 
 
 class Book(models.Model):
@@ -31,7 +25,9 @@ class Book(models.Model):
     """
 
     title = models.CharField(max_length=256)
-    cover = models.ImageField(upload_to=cover_media_upload_handler, blank=True, null=True)
+    slug = models.SlugField(editable=False, blank=True)
+
+    cover = models.ImageField(upload_to=cover_media_upload_handler, default="default_cover.jpg")
     author = models.CharField(max_length=256)
     publisher = models.CharField(max_length=256)
     pub_date = models.CharField(max_length=64, blank=True, null=True)
@@ -43,7 +39,6 @@ class Book(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
-    slug = models.SlugField(editable=False, blank=True, null=True)
     webpage = models.ForeignKey(Page, related_name='books', blank=True, null=True)
 
     def __str__(self):
@@ -59,9 +54,13 @@ class Book(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Slug for urls.
+        Slug for urls.  Cover save img.
+
         """
         self.slug = slugify(self.title)
+        # if self.cover is None:
+        #     pass
+        # Then auto generate this image.
 
         super().save(*args, **kwargs)
 
@@ -80,6 +79,16 @@ class BookPage(models.Model):
 
     def __str__(self):
         return self.name
+
+
+def media_upload_handler(instance, filename) -> str:
+    """
+    Handler to provide link to media images
+
+    """
+
+    # return f"{instance.page.name}/{filename}"
+    return f"{instance.bookpage.book.title}/{instance.bookpage.name}/{filename}"
 
 
 class BookMedia(models.Model):
@@ -104,8 +113,7 @@ class BookMedia(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     content_text = models.TextField(max_length=5000)
-    file = models.FileField(upload_to=media_upload_handler, blank=True, null=True)
-    image = models.ImageField(upload_to=media_upload_handler, blank=True, null=True)
+    file = models.FileField(upload_to=media_upload_handler, default='default_cover.jpg')
 
     def __str__(self):
         return self.type

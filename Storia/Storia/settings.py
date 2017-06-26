@@ -146,11 +146,9 @@ STATICFILES_DIRS = [
 
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = [
-    os.path.join(BASE_DIR, 'media'),
-    os.path.join(BASE_DIR, "book", "media"),
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-    ]
+
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -166,7 +164,7 @@ REST_FRAMEWORK = {
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ryhanlon'
-EMAIL_HOST_PASSWORD = os.environ['GMAIL_PASSWORD']  # configuring os environ variables
+# EMAIL_HOST_PASSWORD = os.environ['GMAIL_PASSWORD']  # configuring os environ variables
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = 'ryhanlon@gmail.com'
@@ -182,6 +180,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
-ADMINS = [('Rebecca', 'ryhanlon@gmailcom'),
+ADMINS = [('Rebecca', 'ryhanlon@gmail.com'),
           ]
 
