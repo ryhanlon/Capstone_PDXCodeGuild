@@ -1,0 +1,31 @@
+{%  extends 'base.html' %}
+
+
+{#---- Add the navbar ----#}
+{% block navbar %}
+
+    {% include 'navbar.html' %}
+
+{% endblock %}
+
+
+{#---- Add the login form ----#}
+{% block feature %}
+
+    <main class="form_container">
+      <br>
+        <section class="login_form">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                <button>Login</button>
+
+            </form>
+        </section>
+     <br>
+    </main>
+
+{% endblock %}

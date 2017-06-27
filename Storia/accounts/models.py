@@ -14,4 +14,5 @@ class User(AbstractUser):
 
     nickname = models.CharField(max_length=300)
 
+
     REQUIRED_FIELDS = ['nickname', 'email']

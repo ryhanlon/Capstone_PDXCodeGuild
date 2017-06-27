@@ -1,0 +1,47 @@
+{%  extends 'base.html' %}
+
+
+{#---- Add the navbar ----#}
+{% block navbar %}
+
+    {% include 'navbar.html' %}
+
+{% endblock %}
+
+
+{% block feature %}
+    <br>
+    <main class="form_container">
+        {#---- Add the update form. ----#}
+        <section class="update-form">
+            <h2>Update your information.</h2>
+            <br>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button>Update</button>
+            </form>
+
+        </section>
+        <br>
+
+    <hr>
+
+        {#---- Add the change your password form. ----#}
+        <section class="change-password-form">
+            <H2>Change your password.</H2>
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                {{ password_form.as_p }}
+
+                <button>Update</button>
+            </form>
+        </section>
+    <br>
+    </main>
+
+{% endblock %}

@@ -42,7 +42,7 @@ body {
 }
 
 main {
-    height: auto;
+
     /*margin: 0;*/
     /*padding-top: 4%;*/
     /*padding-bottom: 3%;*/
@@ -54,6 +54,44 @@ main {
 .shelf{
     margin: 50px 100px;
 }
+
+/*-----------------------------------------
+ update profile, change password, login
+ ----------------------------------------*/
+.form_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center ;
+    /*width: 80%;*/
+
+}
+.update-form  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+
+}
+
+.change-password-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+
+}
+
+
+
 
 /*-----------------------------
        (block) footer
