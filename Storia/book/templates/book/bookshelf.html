@@ -26,15 +26,23 @@
     <main id="container">
 
         <section class="shelf">
+
             {% for book in books %}
+
                 <figure class="frame">
+
                     <img src="{{ book.cover.url }}">
+
                     <figcaption>
-                      <a href="/books/{{ book.slug }}">{{ book.title }}</a>
+                        <p class="title-text">
+                            <a href="/books/{{ book.slug }}">{{ book.title }}</a>
+                        </p>
                     </figcaption>
+
                 </figure>
 
             {% endfor %}
+
         </section>
 
     </main>

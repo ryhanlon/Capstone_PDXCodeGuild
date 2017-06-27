@@ -1,0 +1,31 @@
+{%  extends 'base.html' %}
+{% load static %}
+
+
+{% block links %}
+    <link href="{% static "book/css/book.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block feature %}
+
+
+
+        {{ page.name }}
+
+
+{% endblock %}
+
+
+{% block media %}
+
+    <section class="video-container">
+    <video controls id="myvideo">
+
+        <source src="{% static "images/03_01_Pose.mp4" %}" type="video/mp4">
+    {#    <source src="" type="video/ogg">#}
+        Your browser does not support HTML5 video.
+    </video>
+    </section>
+
+{% endblock %}

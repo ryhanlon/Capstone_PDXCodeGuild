@@ -1,32 +1,112 @@
-{%  extends 'base.html' %}
+{#{%  extends 'base.html' %}#}
 {% load static %}
 
-{% block links %}
-    <link href="{% static "book/css/book.css" %}" rel="stylesheet">
-{% endblock %}
+
+    <!---- block for links ---->
+    {% block links %}
+
+        {#-- lightslider css --#}
+        <link type="text/css" rel="stylesheet" href="{% static 'book/vendor/css/lightslider.css' %}">
+
+        {#-- custome css --#}
+        <link type="text/css" rel="stylesheet" href="{% static 'book/css/book.css' %}">
+
+    {% endblock %}
 
 
-{% block feature %}
+  <!------------- title of book, author, image ------------>
+    <main id="display-book-container">
+        <section class="background">
 
-    {%  for page in book.pages.all %}
+                {% block feature %}
+                    <p class="title">
+                    {{ title_page.name }}
+                    </p>
 
-        {{ page.name }}
+                    {% for page_media in title_page.visuals.all %}
 
-    {%  endfor %}
+                        <div class="thumbnails">
+                        <img src="{{ page_media.file.url }}" >
 
-{% endblock %}
+                        </div>
+
+                    {% endfor %}
+
+                {% endblock %}
+
+        </section>
+    </main>
 
 
-{% block video %}
+ <!------------- lightSlider, thumbnails of story pages ------------>
+    <main>
 
-    <section class="video-container">
-    <video controls id="myvideo">
+        {% block media %}
 
-        <source src="{% static "images/03_01_Pose.mp4" %}" type="video/mp4">
-    {#    <source src="" type="video/ogg">#}
-        Your browser does not support HTML5 video.
-    </video>
-    </section>
+             <!---- html for thumbnail slider ---->
+            <div class="item">
+                <ul id="content-slider" class="content-slider">
 
-{% endblock %}
+                    {% for page in pages %}
+
+                        <li>
+                            <h3>{{ page.name }}</h3>
+{#                           <a href="story_page.html">{{  }}</a>#}
+                        </li>
+
+
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+        {% endblock %}
+
+    </main>
+
+
+    <!---- block for scripts ---->
+    {% block script %}
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/static/book/vendor/js/lightslider.js"></script>
+    <script>
+    	 $(document).ready(function() {
+			$("#content-slider").lightSlider({
+                loop:true,
+                keyPress:true
+            });
+            $('#image-gallery').lightSlider({
+                gallery:true,
+                item:1,
+                thumbItem:9,
+                slideMargin: 0,
+                speed:500,
+                auto:true,
+                loop:true,
+                onSliderLoad: function() {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+		});
+    </script>
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

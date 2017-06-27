@@ -70,6 +70,8 @@ class BookPage(models.Model):
     Template for the story pages.
     """
     book = models.ForeignKey(Book, related_name='pages')
+    slug = models.SlugField(editable=False, blank=True)
+
     name = models.CharField(max_length=245, blank=True, null=True)
     is_title_page = models.BooleanField(default=False)
     page_order = models.PositiveSmallIntegerField(blank=True, null=True)
@@ -79,6 +81,13 @@ class BookPage(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        """
+        Slug for display_page.
+        """
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 
 def media_upload_handler(instance, filename) -> str:

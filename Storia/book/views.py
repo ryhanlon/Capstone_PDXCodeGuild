@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Book
+from .models import Book, BookPage
 
 # from .models import Media, BookMedia
 #
@@ -18,6 +18,17 @@ from .models import Book
 #
 
 
+def story_page(request, book_slug, page_slug):
+    """
+
+    """
+
+    page = BookPage.objects.get(book__slug=book_slug, slug=page_slug)
+
+    context = {'page': page}
+    return render(request, "book/story_page.html", context)
+
+
 def display_book(request, slug):
     """
     To display a book.
@@ -25,7 +36,10 @@ def display_book(request, slug):
     """
 
     book = Book.objects.get(slug=slug)
-    context = {'book': book}
+    pages = book.pages.filter(is_title_page=False).order_by('page_order')
+    title_page = book.pages.get(is_title_page=True)
+
+    context = {'book': book, 'pages': pages, 'title_page': title_page}
     return render(request, 'book/display_book.html', context)
 
 
@@ -38,3 +52,6 @@ def bookshelf(request):
     books = Book.objects.all()
     context = {'books': books}
     return render(request, 'book/bookshelf.html', context)
+
+
+
