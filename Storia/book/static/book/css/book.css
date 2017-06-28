@@ -2,6 +2,18 @@
         bookshelf.html
 -----------------------------------*/
 
+body {
+    margin: 0;
+}
+
+
+
+
+
+/*----------------------------------
+        bookshelf.html
+-----------------------------------*/
+
 #container {
     display: flex;
     flex-direction: column;
@@ -54,20 +66,6 @@ img {
 
 }
 
-.video-container {
-    max-width: 100%;
-    /*background-color: #2b542c;*/
-    /*background-size: cover;*/
-
-}
-
-#myvideo {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-
-
 
  /*--------------------------------------
         display_book.html
@@ -95,7 +93,7 @@ img {
     align-content: space-around;
     background-color: rgba(82, 37, 62, 0.9);
     height: 95%;
-    width: 95%;
+    width: 100%;
 
 }
 
@@ -137,3 +135,50 @@ ul{
     /*font-size: 1.5em;*/
 }
 
+/*----------------------------------
+        story_page.html
+-----------------------------------*/
+/*#story-book-container {*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*flex-wrap: wrap;*/
+    /*justify-content: space-around;*/
+    /*align-items: center;*/
+    /*align-content: space-around;*/
+    /*background-color: rgba(180, 82, 137, 0.9);*/
+    /*height: 80vh;*/
+    /*width:80wh;*/
+/*}*/
+
+
+
+/*.video-container {*/
+    /*max-width: 100%;*/
+    /*!*background-color: #2b542c;*!*/
+    /*!*background-size: cover;*!*/
+
+/*}*/
+
+#myvideo {
+    position: fixed;
+    z-index: 1;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.chapter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    background-color: rgba(180, 82, 137, 0.1);
+    font-size: 3em;
+    color: #5cb85c;
+    position: fixed;
+    z-index: 3;
+}

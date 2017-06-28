@@ -114,6 +114,7 @@ class BookMedia(models.Model):
     visual_artist = models.CharField(max_length=256)
     animator = models.CharField(max_length=256, blank=True, null=True)
     composer = models.CharField(max_length=256, blank=True, null=True)
+    locus = models.PositiveSmallIntegerField(default=0)
 
     type = models.CharField(max_length=3, choices=PAGE_TYPE)
     slug = models.SlugField(editable=False, blank=True)
@@ -125,7 +126,8 @@ class BookMedia(models.Model):
     file = models.FileField(upload_to=media_upload_handler, default='default_cover.jpg')
 
     def __str__(self):
-        return self.type
+        message = f'{self.bookpage.book.title} | {self.bookpage.name} | Pg {self.bookpage.page_order} | {self.slug}'
+        return message
 
 
 class Interaction(models.Model):

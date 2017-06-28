@@ -24,8 +24,9 @@ def story_page(request, book_slug, page_slug):
     """
 
     page = BookPage.objects.get(book__slug=book_slug, slug=page_slug)
+    assets = {p.locus: p for p in page.visuals.order_by('locus')}
 
-    context = {'page': page}
+    context = {'page': page, 'assets': assets}
     return render(request, "book/story_page.html", context)
 
 

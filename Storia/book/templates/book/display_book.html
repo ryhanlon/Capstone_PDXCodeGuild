@@ -51,7 +51,7 @@
 
                         <li>
                             <h3>{{ page.name }}</h3>
-{#                           <a href="story_page.html">{{  }}</a>#}
+                           <a href="{% url 'story_page' book_slug=page.book.slug page_slug=page.slug %}">{{ page.page_order }}</a>
                         </li>
 
 
