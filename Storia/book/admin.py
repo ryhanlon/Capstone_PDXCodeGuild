@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BookMedia, Book, Interaction, BookPage
+from .models import BookMedia, Book, BookPage
 from django.contrib import admin
 
 
@@ -15,5 +15,5 @@ class BookAdmin(admin.ModelAdmin):
 
 admin.site.register(BookMedia)
 admin.site.register(Book, BookAdmin)
-admin.site.register(Interaction)
+
 

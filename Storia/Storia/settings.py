@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'library.apps.LibraryConfig',
     'accounts.apps.AccountsConfig',
-    'incites.apps.IncitesConfig',
     'book.apps.BookConfig',
     'pages.apps.PagesConfig',
+    'insights.apps.InsightsConfig',
     'rest_framework',
 ]
 
@@ -64,6 +64,7 @@ TEMPLATES = [
                  os.path.join(BASE_DIR, 'accounts', 'templates'),
                  os.path.join(BASE_DIR, 'book', 'templates'),
                  os.path.join(BASE_DIR, 'pages', 'templates'),
+                 os.path.join(BASE_DIR, 'insights', 'templates'),
 
                  ]
         ,
@@ -145,7 +146,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     os.path.join(BASE_DIR, "book", "static"),
     os.path.join(BASE_DIR, "library", "static"),
-    os.path.join(BASE_DIR, "incites", "static"),
+    os.path.join(BASE_DIR, "insights", "static"),
     os.path.join(BASE_DIR, "accounts", "static"),
     os.path.join(BASE_DIR, "pages", "static"),
 ]

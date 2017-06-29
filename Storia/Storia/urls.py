@@ -24,7 +24,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
 from accounts.api import UserViewSet
-from book.api import InteractionViewSet
+from insights.api import InteractionViewSet
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()

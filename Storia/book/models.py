@@ -100,7 +100,7 @@ def media_upload_handler(instance, filename) -> str:
     return f"{instance.bookpage.book.title}/{instance.bookpage.name}/{filename}"
 
 
-class BookMedia(models.Model):
+class Assets(models.Model):
     """
     Stores media for the storybook and game to be used for layout.
 
@@ -109,6 +109,11 @@ class BookMedia(models.Model):
         ('BPG', 'book pages'),
         ('GPG', 'game pages'),
         ('DPG', 'dashboard pages'),
+    )
+
+    ASSET_TYPE = (
+        ('AUD', 'audio')
+        'Vid', 'video'
     )
 
     visual_artist = models.CharField(max_length=256)
@@ -130,26 +135,5 @@ class BookMedia(models.Model):
         return message
 
 
-class Interaction(models.Model):
-    """
-    Stores the types of actions captured during the pages interaction: time on the pages,
-    words clicked, audio clicked, videos clicked.
-    """
-    # data from the pages
-    INTERACTION_TYPE = (
-        ('WDC', 'word clicks'),
-        ('VDC', 'video clicks'),
-        ('ADC', 'audio clicks'),
-    )
 
-    slug = models.SlugField(editable=False, blank=True)
-    book_media = models.ForeignKey(BookMedia, related_name='design')
 
-    start = models.DateTimeField()
-    duration = models.DurationField()
-    end = models.DateTimeField()
-    type = models.CharField(max_length=3, choices=INTERACTION_TYPE)
-    actor = models.ForeignKey(User, related_name='interactions')
-
-    def __str__(self):
-        return self.type
