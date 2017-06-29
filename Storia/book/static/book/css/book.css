@@ -159,7 +159,47 @@ ul{
 
 /*}*/
 
-#myvideo {
+#avatar {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    font-size: 2em;
+    color: #5cb85c;
+    z-index: 3;
+}
+
+
+#record {
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    font-size: 2em;
+    color: #5cb85c;
+    z-index: 3;
+}
+
+.chapter {
+    position: absolute;
+    top: -2%;
+    left: 40%;
+    font-size: 3em;
+    color: #5cb85c;
+    z-index: 3;
+}
+
+
+#text {
+    position: absolute;
+    bottom: 10%;
+    right: 20%;
+    font-size: 2.5em;
+    line-height: 1.75em;
+    color: #5cb85c;
+    z-index:3;
+}
+
+
+#story-video {
     position: fixed;
     z-index: 1;
     width: 100% !important;
@@ -167,18 +207,4 @@ ul{
     margin: 0;
     padding: 0;
     overflow: hidden;
-}
-
-.chapter {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    align-content: space-around;
-    background-color: rgba(180, 82, 137, 0.1);
-    font-size: 3em;
-    color: #5cb85c;
-    position: fixed;
-    z-index: 3;
 }

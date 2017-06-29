@@ -1,26 +1,37 @@
-{#{%  extends 'book/book_base.html' %}#}
+<!DOCTYPE html>
+<html lang="en">
 
 {% load static %}
 
+<head>
+    <meta charset="UTF-8">
+    <title>Story Page</title>
+    <link href="{% static "book/css/book.css" %}" rel="stylesheet">
+
+
     {#----- scripts and links -----#}
     {% block links %}
-        <link href="{% static "book/css/book.css" %}" rel="stylesheet">
+
     {% endblock %}
+
+</head>
+
+<body>
 
 
     {#----- Audio files -----#}
-{#    {% block audio %}#}
-{##}
-{#    {% endblock %}#}
-{##}
-{##}
+    {% block audio %}
+
+    {% endblock %}
+
+
     {#----- Chapter text -----#}
     {% block chapter %}
 
         <section class="chapter">
-            <p>
+
             {{ page.name }}
-            </p>
+
         </section>
 
     {% endblock %}
@@ -31,7 +42,7 @@
 
         <section id="avatar">
 
-            <p>Avatar<br>This is me.</p>
+
 
         </section>
 
@@ -42,19 +53,18 @@
     {% block record_icon %}
         <section id="record">
 
-            <p>Record myself.<br> Send to mom.</p>
+
 
         </section>
 
     {% endblock %}
-
 
     {#----- Story text -----#}
     {% block text %}
 
         <section id="text">
 
-            <p>{{ assets.2.slug }} </p>
+
 
         </section>
 
@@ -65,7 +75,7 @@
     {% block media %}
 
         <section class="video-container">
-            <video controls id="story-video" poster="">
+            <video controls id="myvideo" poster="" mute>
 
                 <source src="{{ assets.1.file.url }}" type="video/mp4">
                 Your browser does not support HTML5 video.
@@ -76,6 +86,16 @@
 
     {#----- scripts -----#}
     {% block scripts %}
-        <link href="{% static "book/css/book.css" %}" rel="stylesheet">
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{% static "book/js/script.js" %}"></script>
+
     {% endblock %}
 
+
+</body>
+
+<footer>
+
+</footer>
+</html>
