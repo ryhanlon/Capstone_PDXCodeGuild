@@ -75,7 +75,7 @@ class BookPage(models.Model):
     name = models.CharField(max_length=245, blank=True, null=True)
     is_title_page = models.BooleanField(default=False)
     page_order = models.PositiveSmallIntegerField(blank=True, null=True)
-    content = models.TextField()
+    headline = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
@@ -100,7 +100,7 @@ def media_upload_handler(instance, filename) -> str:
     return f"{instance.bookpage.book.title}/{instance.bookpage.name}/{filename}"
 
 
-class Assets(models.Model):
+class Asset(models.Model):
     """
     Stores media for the storybook and game to be used for layout.
 
@@ -112,8 +112,10 @@ class Assets(models.Model):
     )
 
     ASSET_TYPE = (
-        ('AUD', 'audio')
-        'Vid', 'video'
+        ('AUD', 'audio'),
+        ('VID', 'video'),
+        ('IMG', 'image'),
+        ('TXT', 'text')
     )
 
     visual_artist = models.CharField(max_length=256)
@@ -121,12 +123,13 @@ class Assets(models.Model):
     composer = models.CharField(max_length=256, blank=True, null=True)
     locus = models.PositiveSmallIntegerField(default=0)
 
-    type = models.CharField(max_length=3, choices=PAGE_TYPE)
+    page_type = models.CharField(max_length=3, choices=PAGE_TYPE)
     slug = models.SlugField(editable=False, blank=True)
     bookpage = models.ForeignKey(BookPage, related_name='visuals')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
+    asset_type = models.CharField(max_length=3, choices=ASSET_TYPE)
     content_text = models.TextField(max_length=5000)
     file = models.FileField(upload_to=media_upload_handler, default='default_cover.jpg')
 

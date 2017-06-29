@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BookMedia, Book, BookPage
+from .models import Asset, Book, BookPage
 from django.contrib import admin
 
 
@@ -10,10 +10,21 @@ class BookPageInline(admin.StackedInline):
 class BookAdmin(admin.ModelAdmin):
     inlines = [
         BookPageInline,
-
     ]
 
-admin.site.register(BookMedia)
+
+class AssetPageInLine(admin.StackedInline):
+    model = Asset
+
+
+class BookPageAdmin(admin.ModelAdmin):
+    inlines = [
+        AssetPageInLine
+    ]
+
+
+admin.site.register(BookPage, BookPageAdmin)
 admin.site.register(Book, BookAdmin)
+admin.site.register(Asset)
 
 
