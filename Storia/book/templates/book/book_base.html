@@ -87,7 +87,10 @@
     {#----- scripts -----#}
     {% block scripts %}
 
-        <!-- Bootstrap Core JavaScript -->
+        <!-- jQuery -->
+        <script src="{% static "book/vendor/js/jquery.js" %}"></script>
+
+        <!-- custom js -->
         <script src="{% static "book/js/script.js" %}"></script>
 
     {% endblock %}

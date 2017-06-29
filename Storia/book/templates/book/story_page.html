@@ -5,6 +5,10 @@
     {#----- scripts and links -----#}
     {% block links %}
         <link href="{% static "book/css/book.css" %}" rel="stylesheet">
+
+        <!-- jQuery -->
+        <script src="{% static "book/vendor/js/jquery-3.2.1.min.js" %}"></script>
+        <script src="{% static "book/vendor/js/jquery.js" %}"></script>
     {% endblock %}
 
 
@@ -50,13 +54,48 @@
 
 
     {#----- Story text -----#}
+
+
     {% block text %}
 
-        <section id="text">
 
-            <p>{{ assets.2.slug }} </p>
+
+        <section id="text">
+            <div class="audio-words">
+                <audio id="audio" src="{{ assets.5.file.url }}" type="audio/mpeg" autoplay="false"></audio>
+                <a class="play_sound">Game! <br></a>
+            </div>
+
+            <div class="audio-words">
+                <audio id="audio" src="{{ assets.6.file.url }}" autoplay="false"></audio>
+                <a class="play_sound">Where</a>
+            </div>
+
+            <div>
+                <audio id="audio" src="{{ assets.7.file.url }}" autoplay="false"></audio>
+                <a class="play_sound">is</a>
+            </div>
+
+            <div>
+                <audio id="audio" src="{{ assets.8.file.url }}" autoplay="false"></audio>
+                <a class="play_sound">the river.</a>
+            </div>
+
+
+{#        <p>{{ assets.2.slug }} </p>#}
+{#        <p>{{ assets.3.content_text.url }} </p>#}
+{#           <p>Snow swirled to the ground.</p>#}
 
         </section>
+
+        <script>
+            $('.play_sound').on('click', function () {
+                let sound = $(this).siblings('audio')[0];
+                console.log(`playing sound... ${sound}`);
+                sound.play();
+            }
+            );
+        </script>
 
     {% endblock %}
 
@@ -76,6 +115,15 @@
 
     {#----- scripts -----#}
     {% block scripts %}
-        <link href="{% static "book/css/book.css" %}" rel="stylesheet">
+{##}
+{#        <!-- jQuery -->#}
+{#        <script src="{% static "book/vendor/js/jquery-3.2.1.min.js" %}"></script>#}
+{#        <script src="{% static "book/vendor/js/jquery.js" %}"></script>#}
+
+         <!-- custom js -->
+        <script src="{% static "book/js/script.js" %}"></script>
+
+
+
     {% endblock %}
 
