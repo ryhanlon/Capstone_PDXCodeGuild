@@ -27,6 +27,7 @@ class Page(models.Model):
 class Media(models.Model):
     """
     Stores the media for each web page (html, website centered).
+    ForeignKey: with Page 'contents'
 
     """
 
@@ -40,7 +41,6 @@ class Media(models.Model):
     caption = models.CharField(max_length=62, blank=True, null=True)
     file = models.FileField(upload_to=media_upload_handler, blank=True, null=True)
     image = models.ImageField(upload_to=media_upload_handler, blank=True, null=True)
-
 
     class Meta:
         verbose_name_plural = 'media'

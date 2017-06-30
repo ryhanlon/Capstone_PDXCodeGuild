@@ -1,5 +1,4 @@
 from django.db import models
-from accounts.models import User
 from pages.models import Page
 from django.utils.text import slugify
 
@@ -21,6 +20,7 @@ class Book(models.Model):
     """
     Stores the publishing information for the pages: title, author, pubdate,
     copyright, reading level, word count, isbn.
+    ForeignKey: with Page 'books'
 
     """
 
@@ -58,9 +58,6 @@ class Book(models.Model):
 
         """
         self.slug = slugify(self.title)
-        # if self.cover is None:
-        #     pass
-        # Then auto generate this image.
 
         super().save(*args, **kwargs)
 
@@ -68,7 +65,9 @@ class Book(models.Model):
 class BookPage(models.Model):
     """
     Template for the story pages.
+    ForeignKey: with Book 'pages'
     """
+
     book = models.ForeignKey(Book, related_name='pages')
     slug = models.SlugField(editable=False, blank=True)
 
