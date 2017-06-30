@@ -24,7 +24,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
 from accounts.api import UserViewSet
-from insights.api import InteractionViewSet
+from insights.api import InteractionViewSet, create_interaction
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
@@ -46,11 +46,12 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     # Books
-    # url(r'^book/create/', create_book, name='create_book'),
     url(r'^books/bookshelf', bookshelf, name='bookshelf'),
     url(r'^books/(?P<slug>[a-z0-9\-]+)$', display_book, name='display_book'),
     url(r'^books/(?P<book_slug>[a-z0-9\-]+)/(?P<page_slug>[a-z0-9\-]+)', story_page, name='story_page'),
 
+    # Insights
+    url(r'^insights/clicks', create_interaction, name='create_interaction'),
 ]
 
 
