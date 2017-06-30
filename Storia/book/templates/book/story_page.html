@@ -5,6 +5,9 @@
     {#----- scripts and links -----#}
     {% block links %}
         <link href="{% static "book/css/book.css" %}" rel="stylesheet">
+{##}
+        <!-- ajax -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <!-- jQuery -->
         <script src="{% static "book/vendor/js/jquery-3.2.1.min.js" %}"></script>
@@ -14,10 +17,10 @@
 
     {#----- Audio files -----#}
 {#    {% block audio %}#}
-{##}
+
 {#    {% endblock %}#}
-{##}
-{##}
+
+
     {#----- Chapter text -----#}
     {% block chapter %}
 
@@ -58,25 +61,46 @@
 
     {% block text %}
 
-        <section id="text">
-            <div class="audio-words">
-                <audio id="audio" src="{{ assets.11.file.url }}" type="audio/mpeg" autostart="false"></audio>
-                <a class="play_sound">Game! <br></a>
+        <section class="text">
+
+            <div class="word-1">
+                <audio id="audio" data-id="{{ assets.11.id }}" src="{{ assets.11.file.url }}" autostart="false"></audio>
+               <a class="play_sound asset">Game!</a>
             </div>
 
-            <div class="audio-words">
-                <audio id="audio" src="{{ assets.12.file.url }}" autostart="false"></audio>
-                <a class="play_sound">Where</a>
+            <div class="word-2">
+                <audio id="audio" data-id="{{ assets.12.id }}" src="{{ assets.12.file.url }}" autostart="false"></audio>
+               <a class="play_sound asset"><br>Where</a>
             </div>
 
-            <div class="audio-words">
-                <audio id="audio" src="{{ assets.13.file.url }}" autostart="false"></audio>
-                <a class="play_sound">is</a>
+            <div class="word-3">
+                <audio id="audio" data-id="{{ assets.13.id }}" src="{{ assets.13.file.url }}" autostart="false"></audio>
+                <a class="play_sound asset"><br>is</a>
             </div>
 
-            <div class="audio-words">
-                <audio id="audio" src="{{ assets.14.file.url }}" autostart="false"></audio>
-                <a class="play_sound">the river.</a>
+            <div class="word-4">
+                <audio id="audio" data-id="{{ assets.14.id }}" src="{{ assets.14.file.url }}" autostart="false"></audio>
+                <a class="play_sound asset"><br>the &#160; river.</a>
+            </div>
+
+            <div class="word-5">
+                <audio id="audio" data-id="{{ assets.11.id }}" src="{{ assets.11.file.url }}" autostart="false"></audio>
+                <a class="play_sound asset">Game!</a>
+            </div>
+
+            <div class="word-6">
+                <audio id="audio" data-id="{{ assets.12.id }}" src="{{ assets.12.file.url }}" autostart="false"></audio>
+               <a class="play_sound asset"><br>Where</a>
+            </div>
+
+            <div class="word-7">
+                <audio id="audio" data-id="{{ assets.13.id }}" src="{{ assets.13.file.url }}" autostart="false"></audio>
+                <a class="play_sound asset"><br>is</a>
+            </div>
+
+            <div class="word-8">
+                <audio id="audio" data-id="{{ assets.14.id }}" src="{{ assets.14.file.url }}" autostart="false"></audio>
+                <a class="play_sound asset"><br>the &#160; river.</a>
             </div>
 
 
@@ -94,7 +118,7 @@
     {% block media %}
 
         <section class="video-container">
-            <video controls id="story-video" poster="">
+            <video controls id="story-video" controls>
 
                 <source src="{{ assets.1.file.url }}" type="video/mp4">
                 Your browser does not support HTML5 video.
@@ -105,13 +129,17 @@
 
     {#----- scripts -----#}
     {% block scripts %}
-{##}
-{#        <!-- jQuery -->#}
+
+        {# <!-- jQuery -->#}
         <script src="{% static "book/vendor/js/jquery-3.2.1.min.js" %}"></script>
         <script src="{% static "book/vendor/js/jquery.js" %}"></script>
 
+        <script src="{% static "js/csrf.js" %}"></script>
+
          <!-- custom js -->
         <script src="{% static "book/js/script.js" %}"></script>
+        <script src="{% static "book/js/story_book.js" %}"></script>
+
 
 
 
