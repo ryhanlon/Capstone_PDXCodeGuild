@@ -8,6 +8,12 @@
     <title>Story Page</title>
     <link href="{% static "book/css/book.css" %}" rel="stylesheet">
 
+        <!-- ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="{% static "book/vendor/js/jquery-3.2.1.min.js" %}"></script>
+    <script src="{% static "book/vendor/js/jquery.js" %}"></script>
 
     {#----- scripts and links -----#}
     {% block links %}
@@ -29,9 +35,9 @@
     {% block chapter %}
 
         <section class="chapter">
-
+            <p>
             {{ page.name }}
-
+            </p>
         </section>
 
     {% endblock %}
@@ -42,7 +48,7 @@
 
         <section id="avatar">
 
-
+            <p>Avatar<br>This is me.</p>
 
         </section>
 
@@ -53,7 +59,7 @@
     {% block record_icon %}
         <section id="record">
 
-
+            <p>Record myself.<br> Send to mom.</p>
 
         </section>
 
@@ -62,11 +68,8 @@
     {#----- Story text -----#}
     {% block text %}
 
-        <section id="text">
 
 
-
-        </section>
 
     {% endblock %}
 
@@ -75,7 +78,7 @@
     {% block media %}
 
         <section class="video-container">
-            <video controls id="myvideo" poster="" mute>
+            <video controls id="myvideo" poster="" controls>
 
                 <source src="{{ assets.1.file.url }}" type="video/mp4">
                 Your browser does not support HTML5 video.
@@ -85,20 +88,26 @@
     {% endblock %}
 
     {#----- scripts -----#}
-    {% block scripts %}
 
-        <!-- jQuery -->
+
+        {# <!-- jQuery -->#}
+        <script src="{% static "book/vendor/js/jquery-3.2.1.min.js" %}"></script>
         <script src="{% static "book/vendor/js/jquery.js" %}"></script>
 
-        <!-- custom js -->
-        <script src="{% static "book/js/script.js" %}"></script>
+        <script src="{% static "js/csrf.js" %}"></script>
 
+         <!-- custom js -->
+        <script src="{% static "book/js/script.js" %}"></script>
+        <script src="{% static "book/js/story_book.js" %}"></script>
+
+
+    {% block scripts %}
     {% endblock %}
 
 
 </body>
 
-<footer>
-
-</footer>
+{#<footer>#}
+{#    <p>Bunny and Bugs Multimedia 2017</p>>#}
+{#</footer>#}
 </html>
