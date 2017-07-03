@@ -34,9 +34,9 @@ body {
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-    background-color: rgba(181, 181, 181, 0.9);
+    /*background-color: rgba(181, 181, 181, 0.9);*/
     height: 40vh;
-    /*width: 35wh;*/
+    width: 35wh;
 }
 
 .frame {
@@ -48,7 +48,7 @@ body {
     align-content: space-around;
     /*background-color: rgba(159, 0, 255, 0.9);*/
     height: 35vh;
-    /*width: 25wh;*/
+
 
 }
 
@@ -59,11 +59,21 @@ img {
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-    background-color: rgba(159, 0, 255, 0.9);
+    /*background-color: rgba(159, 0, 255, 0.9);*/
     height: 30vh;
     /*width: 20wh;*/
     margin: 0 20px;
 
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+
+}
+figcaption  {
+
+    font-size: 1.2em;
 }
 
 

@@ -56,7 +56,7 @@
     </section>
 
 
-    <main>
+    <main class="base">
 
         {% block feature %}
 
@@ -64,13 +64,7 @@
 
     </main>
 
-    <main>
 
-        {% block media %}
-
-        {% endblock %}
-
-    </main>
 
     <!--------- Bottom of Tag Content ------->
     {% block tagline %}
@@ -78,6 +72,7 @@
     {% endblock %}
 
          <!------ Footer ------>
+    {% block footer %}
         <hr>
         <footer>
             <div class="row">
@@ -87,6 +82,7 @@
             </div>
             <!-- /.row -->
         </footer>
+    {%  endblock %}
 
 
     <!-- jQuery -->

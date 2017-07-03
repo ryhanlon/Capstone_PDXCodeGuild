@@ -31,13 +31,8 @@
 
                 <figure class="frame">
 
-                    <img src="{{ book.cover.url }}">
-
-                    <figcaption>
-                        <p class="title-text">
-                            <a href="/books/{{ book.slug }}">{{ book.title }}</a>
-                        </p>
-                    </figcaption>
+                            <a href="/books/{{ book.slug }}">  <img src="{{ book.cover.url }}"></a>
+                                <figcaption class="title-text">{{ book.title }}</figcaption>
 
                 </figure>
 

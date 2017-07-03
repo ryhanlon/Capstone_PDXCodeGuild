@@ -40,7 +40,9 @@ body {
 -----------------------------*/
 
 .carousel-caption {
-    background-color: black !important;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: auto;
 
 }
 
@@ -55,7 +57,7 @@ body {
     margin-top: 50px;
 }
 
-main {
+.base {
 
     /*margin: 0;*/
     padding-top: 0%;
@@ -66,10 +68,6 @@ main {
 
 }
 
-
-.shelf{
-    margin: 50px 100px;
-}
 
 /*-----------------------------------------
  update profile, change password, login
