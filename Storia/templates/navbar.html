@@ -19,19 +19,35 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+
+                    {% if request.user.is_authenticated %}
                     <li>
                         <a href="{% url 'bookshelf' %}">Bookshelf</a>
                     </li>
+                    {% endif %}
+
                     <li>
                         <a href="{%  url 'about' %}">About</a>
                     </li>
                     <li>
                         <a href="{%  url 'contact' %}">Contact</a>
                     </li>
+
+                    {% if request.user.is_anonymous %}
+                    <li>
+                        <a href="{%  url 'accounts:register' %}">Register</a>
+                    </li>
+                    {% endif %}
+
+                     {% if request.user.is_authenticated %}
+                    <li>
+                        <a href="{%  url 'accounts:logout' %}">LogOut</a>
+                    </li>
+                    {% else %}
                     <li>
                         <a href="{%  url 'accounts:login' %}">LogIn</a>
                     </li>
-
+                    {% endif %}
 
 
 
