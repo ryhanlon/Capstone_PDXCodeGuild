@@ -3,62 +3,70 @@
 {% load static %}
 
 
-    {#----- Story text -----#}
+<!----- add avatar ----->
+{% block avatar %}
+
+     {% include "book/avatar.html" %}
+
+{% endblock %}
 
 
-    {% block text %}
-
-        <section class="text">
-
-            <div class="word-1">
-                <audio id="audio" data-id="{{ assets.11.id }}" src="{{ assets.11.file.url }}" autostart="false"></audio>
-               <a class="play_sound asset">Game!</a>
-            </div>
-
-            <div class="word-2">
-                <audio id="audio" data-id="{{ assets.12.id }}" src="{{ assets.12.file.url }}" autostart="false"></audio>
-               <a class="play_sound asset"><br>Where</a>
-            </div>
-
-            <div class="word-3">
-                <audio id="audio" data-id="{{ assets.13.id }}" src="{{ assets.13.file.url }}" autostart="false"></audio>
-                <a class="play_sound asset"><br>is</a>
-            </div>
-
-            <div class="word-4">
-                <audio id="audio" data-id="{{ assets.14.id }}" src="{{ assets.14.file.url }}" autostart="false"></audio>
-                <a class="play_sound asset"><br>the &#160; river.</a>
-            </div>
-
-            <div class="word-5">
-                <audio id="audio" data-id="{{ assets.11.id }}" src="{{ assets.11.file.url }}" autostart="false"></audio>
-                <a class="play_sound asset">Game!</a>
-            </div>
-
-            <div class="word-6">
-                <audio id="audio" data-id="{{ assets.12.id }}" src="{{ assets.12.file.url }}" autostart="false"></audio>
-               <a class="play_sound asset"><br>Where</a>
-            </div>
-
-            <div class="word-7">
-                <audio id="audio" data-id="{{ assets.13.id }}" src="{{ assets.13.file.url }}" autostart="false"></audio>
-                <a class="play_sound asset"><br>is</a>
-            </div>
-
-            <div class="word-8">
-                <audio id="audio" data-id="{{ assets.14.id }}" src="{{ assets.14.file.url }}" autostart="false"></audio>
-                <a class="play_sound asset"><br>the &#160; river.</a>
-            </div>
+{#----- Story text -----#}
 
 
-{#        <p>{{ assets.2.slug }} </p>#}
-{#        <p>{{ assets.3.content_text.url }} </p>#}
-{#           <p>Snow swirled to the ground.</p>#}
+{% block text %}
 
-        </section>
+    <section class="text">
+
+        <div class="word-1">
+            <audio id="audio" data-id="{{ assets.11.id }}" src="{{ assets.11.file.url }}" autostart="false"></audio>
+            <a class="play_sound asset">Game!</a>
+        </div>
+
+        <div class="word-2">
+            <audio id="audio" data-id="{{ assets.12.id }}" src="{{ assets.12.file.url }}" autostart="false"></audio>
+            <a class="play_sound asset"><br>Where</a>
+        </div>
+
+        <div class="word-3">
+            <audio id="audio" data-id="{{ assets.13.id }}" src="{{ assets.13.file.url }}" autostart="false"></audio>
+            <a class="play_sound asset"><br>is</a>
+        </div>
+
+        <div class="word-4">
+            <audio id="audio" data-id="{{ assets.14.id }}" src="{{ assets.14.file.url }}" autostart="false"></audio>
+            <a class="play_sound asset"><br>the &#160; river.</a>
+        </div>
+
+        <div class="word-5">
+            <audio id="audio" data-id="{{ assets.11.id }}" src="{{ assets.11.file.url }}" autostart="false"></audio>
+            <a class="play_sound asset">Game!</a>
+        </div>
+
+        <div class="word-6">
+            <audio id="audio" data-id="{{ assets.12.id }}" src="{{ assets.12.file.url }}" autostart="false"></audio>
+            <a class="play_sound asset"><br>Where</a>
+        </div>
+
+        <div class="word-7">
+            <audio id="audio" data-id="{{ assets.13.id }}" src="{{ assets.13.file.url }}" autostart="false"></audio>
+            <a class="play_sound asset"><br>is</a>
+        </div>
+
+        <div class="word-8">
+            <audio id="audio" data-id="{{ assets.14.id }}" src="{{ assets.14.file.url }}" autostart="false"></audio>
+            <a class="play_sound asset"><br>the &#160; river.</a>
+        </div>
 
 
-    {% endblock %}
+        {#        <p>{{ assets.2.slug }} </p>#}
+        {#        <p>{{ assets.3.content_text.url }} </p>#}
+        {#           <p>Snow swirled to the ground.</p>#}
+
+    </section>
+
+
+{% endblock %}
 
 
 

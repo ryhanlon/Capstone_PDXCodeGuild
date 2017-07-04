@@ -17,13 +17,13 @@
     <title>Storia</title>
 
     <!-- Bootstrap Core CSS -->
-     <link href="{% static "vendor/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "vendor/bootstrap.min.css" %}" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="{% static "css/styles.css" %}" rel="stylesheet">
 
 
-        <!-- slider css -->
+    <!-- slider css -->
     <link href="{% static "vendor/full-slider.css" %}" rel="stylesheet">
 
     <!---- block for links ---->
@@ -37,43 +37,39 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
-
 </head>
 
-{# ------------------- BODY ---------------------- #}
 
 <body>
 
-
-    <!------------- add navbar ------------>
-
-
+    <!----- add navbar ----->
         {% block navbar %}
 
         {% endblock %}
 
-{#    </section>#}
+
+    <!----- add avatar ----->
+    {% block avatar %}
+
+    {% endblock %}
 
 
-
-
+    <!----- add feature ----->
         {% block feature %}
+
                 <main class="base">
                 </main>
 
         {% endblock %}
 
 
+    <!---- Bottom of Tag Content ---->
+    {% block tagline %}
+
+    {% endblock %}
 
 
-
-{#    <!--------- Bottom of Tag Content ------->#}
-{#    {% block tagline %}#}
-{##}
-{#    {% endblock %}#}
-
-         <!------ Footer ------>
+    <!------ Footer ------>
     {% block footer %}
         <hr>
         <footer>
@@ -84,7 +80,7 @@
             </div>
             <!-- /.row -->
         </footer>
-    {%  endblock %}
+    {% endblock %}
 
 
     <!-- jQuery -->
@@ -92,15 +88,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "vendor/bootstrap.min.js" %}"></script>
-{##}
-{#    <script>#}
-{##}
-{#        var elem = document.getElementById("myvideo");#}
-{#        if (elem.requestFullscreen) {#}
-{#         elem.requestFullscreen();#}
-{#        }#}
-{##}
-{#    </script>#}
+
 
     <!---- block for scripts ---->
     {% block script %}

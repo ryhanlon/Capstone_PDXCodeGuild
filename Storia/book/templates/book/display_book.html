@@ -1,95 +1,103 @@
-{#{%  extends 'base.html' %}#}
+{#{%  extends 'book/book_base.html' %}#}
 {% load static %}
 
 
-    <!---- block for links ---->
-    {% block links %}
+<!---- block for links ---->
+{% block links %}
 
-        {#-- lightslider css --#}
-        <link type="text/css" rel="stylesheet" href="{% static 'book/vendor/css/lightslider.css' %}">
+    {#-- lightslider css --#}
+    <link type="text/css" rel="stylesheet" href="{% static 'book/vendor/css/lightslider.css' %}">
 
-        {#-- custome css --#}
-        <link type="text/css" rel="stylesheet" href="{% static 'book/css/book.css' %}">
+    {#-- custome css --#}
+    <link type="text/css" rel="stylesheet" href="{% static 'book/css/book.css' %}">
 
-    {% endblock %}
-
-
-  <!------------- title of book, author, image ------------>
-    <main id="display-book-container">
-        <section class="background">
-
-                {% block feature %}
-                    <p class="title">
-                    {{ title_page.name }}
-                    </p>
-
-                    {% for page_media in title_page.visuals.all %}
-
-                        <div class="thumbnails">
-                        <img src="{{ page_media.file.url }}" >
-
-                        </div>
-
-                    {% endfor %}
-
-                {% endblock %}
-
-        </section>
-    </main>
+{% endblock %}
 
 
- <!------------- lightSlider, thumbnails of story pages ------------>
-    <main>
+<!----- add avatar ----->
+{% block avatar %}
 
-        {% block media %}
+     {% include "book/avatar.html" %}
 
-             <!---- html for thumbnail slider ---->
-            <div class="item">
-                <ul id="content-slider" class="content-slider">
-
-                    {% for page in pages %}
-
-                        <li>
-                            <h3>{{ page.name }}</h3>
-                           <a href="{% url 'story_page' book_slug=page.book.slug page_slug=page.slug %}">{{ page.page_order }}</a>
-                        </li>
+{% endblock %}
 
 
-                    {% endfor %}
+<!------------- title of book, author, image ------------>
+<main id="display-book-container">
+    <section class="background">
 
-                </ul>
-            </div>
+        {% block feature %}
+            <p class="title">
+                {{ title_page.name }}
+            </p>
+
+            {% for page_media in title_page.visuals.all %}
+
+                <div class="thumbnails">
+                    <img src="{{ page_media.file.url }}">
+
+                </div>
+
+            {% endfor %}
 
         {% endblock %}
 
-    </main>
+    </section>
+</main>
 
 
-    <!---- block for scripts ---->
-    {% block script %}
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!------------- lightSlider, thumbnails of story pages ------------>
+<main>
+
+    {% block media %}
+
+        <!---- html for thumbnail slider ---->
+        <div class="item">
+            <ul id="content-slider" class="content-slider">
+
+                {% for page in pages %}
+
+                    <li>
+                        <h3>{{ page.name }}</h3>
+                        <a href="{% url 'story_page' book_slug=page.book.slug page_slug=page.slug %}">{{ page.page_order }}</a>
+                    </li>
+
+
+                {% endfor %}
+
+            </ul>
+        </div>
+
+    {% endblock %}
+
+</main>
+
+
+<!---- block for scripts ---->
+{% block script %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/static/book/vendor/js/lightslider.js"></script>
     <script>
-    	 $(document).ready(function() {
-			$("#content-slider").lightSlider({
-                loop:true,
-                keyPress:true
+        $(document).ready(function () {
+            $("#content-slider").lightSlider({
+                loop: true,
+                keyPress: true
             });
             $('#image-gallery').lightSlider({
-                gallery:true,
-                item:1,
-                thumbItem:9,
+                gallery: true,
+                item: 1,
+                thumbItem: 9,
                 slideMargin: 0,
-                speed:500,
-                auto:true,
-                loop:true,
-                onSliderLoad: function() {
+                speed: 500,
+                auto: true,
+                loop: true,
+                onSliderLoad: function () {
                     $('#image-gallery').removeClass('cS-hidden');
                 }
             });
-		});
+        });
     </script>
-    {% endblock %}
+{% endblock %}
 
 
 

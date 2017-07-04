@@ -1,18 +1,39 @@
 /*----------------------------------
+        avatar.html
+-----------------------------------*/
+#avatar-frame {
+    position: fixed;
+    right: 1%;
+    top: 10%;
+    background-color: #c8c800;
+    border: inset;
+    min-height: 20vh;
+    min-width: 12vw;
+
+}
+
+
+.avatar-image {
+    height: 18vh;
+    width: 5vw;
+}
+.stars {
+    min-height: 5vh;
+    min-width: 10vw;
+    font-size: 2em;
+
+
+
+
+}
+
+/*----------------------------------
         bookshelf.html
 -----------------------------------*/
 
 body {
     margin: 0;
 }
-
-
-
-
-
-/*----------------------------------
-        bookshelf.html
------------------------------------*/
 
 #container {
     display: flex;
@@ -69,10 +90,11 @@ img {
 figure {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
 }
 figcaption  {
-
+    align-items: center;
     font-size: 1.2em;
 }
 

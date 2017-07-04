@@ -2,45 +2,56 @@
 {% load static %}
 
 
-<head>
+<head xmlns="http://www.w3.org/1999/html">
 
-        {% block links %}
-            <link href="{% static "book/css/book.css" %}" rel="stylesheet">
-        {% endblock %}
+    {% block links %}
+        <link href="{% static "book/css/book.css" %}" rel="stylesheet">
+    {% endblock %}
 
 </head>
-    <!------------- add navbar ------------>
+
+
+<!------------- add navbar ------------>
+{% block navbar %}
     <section>
 
-        {% block navbar %}
-
-            {% include "navbar.html" %}
-
-        {% endblock %}
+        {% include 'navbar.html' %}
 
     </section>
 
+{% endblock %}
 
 
-{% block feature %}
+<!----- add avatar ----->
+{% block avatar %}
 
-        <section id="container" class="shelf">
-
-            {% for book in books %}
-
-                <figure class="frame">
-
-                            <a href="/books/{{ book.slug }}">  <img src="{{ book.cover.url }}"></a>
-                                <figcaption class="title-text">{{ book.title }}</figcaption>
-
-                </figure>
-
-            {% endfor %}
-
-        </section>
-
+    {% include 'book/avatar.html' %}
 
 {% endblock %}
 
+
+ <!------------- add feature ------------>
+{% block feature %}
+
+    <section id="container" class="shelf">
+
+        {% for book in books %}
+
+            <figure class="frame">
+
+                <a href="/books/{{ book.slug }}"> <img src="{{ book.cover.url }}"></a>
+                <figcaption class="title-text">{{ book.title }}</figcaption>
+
+            </figure>
+
+        {% endfor %}
+
+    </section>
+
+{% endblock %}
+
+
+<!----- add tagline ----->
 {% block tagline %}
+
 {% endblock %}
