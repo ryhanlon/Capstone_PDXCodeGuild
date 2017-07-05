@@ -42,7 +42,7 @@ body {
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-    background-color: rgba(181, 31, 114, 0.7);
+    background-color: rgb(181, 31, 114);
     height: 80vh;
     width:100%;
 }
@@ -124,7 +124,7 @@ figcaption  {
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-    background-color: rgba(100, 17, 63, 0.96);
+   background-color: rgb(181, 31, 114);
     min-height: 74%;
     width: 100%;
 
