@@ -28,11 +28,7 @@
     <!----- add avatar ----->
     {% block avatar %}
 
-    {% endblock %}
-
-
-    {#----- Audio files -----#}
-    {% block audio %}
+         {% include "book/avatar.html" %}
 
     {% endblock %}
 
@@ -59,11 +55,9 @@
 
     {% endblock %}
 
-    {#----- Story text -----#}
+
+    {#----- Story text, unique on each page -----#}
     {% block text %}
-
-
-
 
     {% endblock %}
 
