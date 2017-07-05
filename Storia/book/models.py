@@ -89,7 +89,7 @@ class BookPage(models.Model):
         super().save(*args, **kwargs)
 
 
-def media_upload_handler(instance, filename) -> str:
+def book_media_upload_handler(instance, filename) -> str:
     """
     Handler to provide link to media images
 
@@ -130,7 +130,7 @@ class Asset(models.Model):
 
     asset_type = models.CharField(max_length=3, choices=ASSET_TYPE)
     content_text = models.TextField(max_length=5000)
-    file = models.FileField(upload_to=media_upload_handler, default='default_cover.jpg')
+    file = models.FileField(upload_to=book_media_upload_handler, default='default_cover.jpg')
 
     def __str__(self):
         message = f'{self.bookpage.book.title} | {self.bookpage.name} | Pg {self.bookpage.page_order} | {self.slug}'
