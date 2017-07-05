@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                 ('modified', models.DateTimeField(auto_now=True)),
                 ('asset_type', models.CharField(choices=[('AUD', 'audio'), ('VID', 'video'), ('IMG', 'image'), ('TXT', 'text')], max_length=3)),
                 ('content_text', models.TextField(max_length=5000)),
-                ('file', models.FileField(default='default_cover.jpg', upload_to=book.models.media_upload_handler)),
+                ('file', models.FileField(default='default_cover.jpg', upload_to=book.models.book_media_upload_handler)),
             ],
         ),
         migrations.CreateModel(

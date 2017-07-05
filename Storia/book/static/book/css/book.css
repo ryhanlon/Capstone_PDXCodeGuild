@@ -151,18 +151,21 @@ figcaption  {
  /*-- lightslider css --*/
 
 .lSSlideOuter{
-    background-color: rgba(100, 17, 63, 0.96);
+    background-color: rgb(181, 31, 114);
 }
+
 ul{
     list-style: none outside none;
     padding-left: 0;
     margin: 0;
 }
+
 .content-slider li{
     background-color: #b45289;
     text-align: center;
-    color: #rgba(159, 159, 159, 0.9);
+
 }
+
 .content-slider h3 {
     margin: 0;
     padding: 70px 0;

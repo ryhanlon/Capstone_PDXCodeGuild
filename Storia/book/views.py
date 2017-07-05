@@ -26,6 +26,12 @@ def display_book(request, slug):
     pages = book.pages.filter(is_title_page=False).order_by('page_order')
     title_page = book.pages.get(is_title_page=True)
 
+    page_assets = {'avatar': request.user,
+                   'video': '',
+                   'record_icon': '',
+                   'words': ('', ''),
+                   }
+
     context = {'book': book, 'pages': pages, 'title_page': title_page}
     return render(request, 'book/display_book.html', context)
 
