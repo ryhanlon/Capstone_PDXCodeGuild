@@ -114,7 +114,8 @@ class Asset(models.Model):
         ('AUD', 'audio'),
         ('VID', 'video'),
         ('IMG', 'image'),
-        ('TXT', 'text')
+        ('IMA', 'image and audio'),
+        ('TXA', 'text and audio'),
     )
 
     visual_artist = models.CharField(max_length=256)
@@ -124,16 +125,27 @@ class Asset(models.Model):
 
     page_type = models.CharField(max_length=3, choices=PAGE_TYPE)
     slug = models.SlugField(editable=False, blank=True)
-    bookpage = models.ForeignKey(BookPage, related_name='visuals')
+    bookpage = models.ForeignKey(BookPage, related_name='assets')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
-    asset_type = models.CharField(max_length=3, choices=ASSET_TYPE)
-    content_text = models.TextField(max_length=5000)
+    type = models.CharField(max_length=3, choices=ASSET_TYPE)
+    text = models.TextField(max_length=5000, blank=True, null=True)
     file = models.FileField(upload_to=book_media_upload_handler, default='default_cover.jpg')
 
+    def truncate(self, amount=25):
+        """
+        Truncates text, shorten for the __str__
+        """
+        if self.text is not None:
+
+            result = self.text[:amount]
+
+            return result
+
     def __str__(self):
-        message = f'{self.bookpage.book.title} | {self.bookpage.name} | Pg {self.bookpage.page_order} | {self.slug}'
+
+        message = f'{self.bookpage.book.title} | {self.bookpage.name} | Pg {self.bookpage.page_order} | {self.type} | {self.truncate()} | {self.slug}'
         return message
 
 

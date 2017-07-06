@@ -15,7 +15,8 @@
 {% block record_icon %}
     <section id="record">
 
-        <img class="record-image" src="{% static "book/images/microphone.png" %}">
+{#        <img class="avatar-image" src="/book/{{ request.user.image.url }}">#}
+        <img class="record-image" src="{{ assets.record_icon.file.url }}">
 
     </section>
 
@@ -30,50 +31,12 @@
 
     <section class="text">
 
-        <div class="word-1">
-            <audio id="audio" data-id="{{ assets.11.id }}" src="{{ assets.11.file.url }}" autostart="false"></audio>
-            <a class="play_sound asset">Game!</a>
-        </div>
-
-        <div class="word-2">
-            <audio id="audio" data-id="{{ assets.12.id }}" src="{{ assets.12.file.url }}" autostart="false"></audio>
-            <a class="play_sound asset"><br>Where</a>
-        </div>
-
-        <div class="word-3">
-            <audio id="audio" data-id="{{ assets.13.id }}" src="{{ assets.13.file.url }}" autostart="false"></audio>
-            <a class="play_sound asset"><br>is</a>
-        </div>
-
-        <div class="word-4">
-            <audio id="audio" data-id="{{ assets.14.id }}" src="{{ assets.14.file.url }}" autostart="false"></audio>
-            <a class="play_sound asset"><br>the &#160; river.</a>
-        </div>
-
-        <div class="word-5">
-            <audio id="audio" data-id="{{ assets.11.id }}" src="{{ assets.11.file.url }}" autostart="false"></audio>
-            <a class="play_sound asset">Game!</a>
-        </div>
-
-        <div class="word-6">
-            <audio id="audio" data-id="{{ assets.12.id }}" src="{{ assets.12.file.url }}" autostart="false"></audio>
-            <a class="play_sound asset"><br>Where</a>
-        </div>
-
-        <div class="word-7">
-            <audio id="audio" data-id="{{ assets.13.id }}" src="{{ assets.13.file.url }}" autostart="false"></audio>
-            <a class="play_sound asset"><br>is</a>
-        </div>
-
-        <div class="word-8">
-            <audio id="audio" data-id="{{ assets.14.id }}" src="{{ assets.14.file.url }}" autostart="false"></audio>
-            <a class="play_sound asset"><br>the &#160; river.</a>
-        </div>
-
-
-        {#        <p>{{ assets.2.slug }} </p>#}
-        {#        <p>{{ assets.3.content_text.url }} </p>#}
-        {#           <p>Snow swirled to the ground.</p>#}
+        {% for word in assets.words %}
+            <div class="word-{{ forloop.counter }}">
+                <audio id="audio" data-id="{{ word.id }}" src="{{ word.file.url }}" autostart="false"></audio>
+                <a class="play_sound asset">{{ word.text }}</a>
+            </div>
+        {% endfor %}
 
     </section>
 

@@ -1,16 +1,23 @@
 from django.shortcuts import render
-from .models import Book, BookPage
+from .models import Book, BookPage, Asset
 
 
 
 
 def story_page(request, book_slug, page_slug):
     """
-
+    Directing layout assets to story_page.html (storybook page).
     """
 
     page = BookPage.objects.get(book__slug=book_slug, slug=page_slug)
-    assets = {p.locus: p for p in page.visuals.order_by('locus')}
+    assets = page.assets.all()
+
+    assets = {
+              'video': assets.filter(type='VID')[0],
+              'record_icon': assets.filter(type='IMA'),
+              'words': assets.filter(type='TXA'),
+              'merits': assets.filter(type='IMG'),
+             }
 
     context = {'page': page, 'assets': assets}
     return render(request, "book/story_page.html", context)
@@ -25,12 +32,6 @@ def display_book(request, slug):
     book = Book.objects.get(slug=slug)
     pages = book.pages.filter(is_title_page=False).order_by('page_order')
     title_page = book.pages.get(is_title_page=True)
-
-    page_assets = {'avatar': request.user,
-                   'video': '',
-                   'record_icon': '',
-                   'words': ('', ''),
-                   }
 
     context = {'book': book, 'pages': pages, 'title_page': title_page}
     return render(request, 'book/display_book.html', context)

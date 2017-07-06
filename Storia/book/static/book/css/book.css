@@ -21,11 +21,20 @@
     min-height: 5vh;
     min-width: 10vw;
     font-size: 2em;
+}
 
+/*----------------------------------
+        record icon /
+-----------------------------------*/
 
-
+#record-image {
+    height: 20vh;
+    width: 15vw;
+    background-color: rgb(204, 82, 0);
 
 }
+
+
 
 /*----------------------------------
         bookshelf.html

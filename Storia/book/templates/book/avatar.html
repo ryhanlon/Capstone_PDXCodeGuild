@@ -6,7 +6,8 @@
 {% block avatar %}
     <figure id="avatar-frame">
 
-            <img class="avatar-image" src="{% static "book/images/Bunny-avatar.gif" %}">
+{#            <img class="avatar-image" src="{% static "book/images/Bunny-avatar.gif" %}">#}
+            <img class="avatar-image" src="{{ request.user.image.url }}">
             <figcaption class="stars">10 stars!</figcaption>
 
     </figure>
