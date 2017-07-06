@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from insights.models import Merit, Awardance
 
 
 def user_media_upload_handler(instance, filename) -> str:
@@ -19,10 +20,12 @@ class User(AbstractUser):
     represented by this model.
     The best users.  They love reading stories.
     Username, password and email are required.
+    ManyToMany relationship between User | Merit, through table Awardance.
 
     """
 
     nickname = models.CharField(max_length=300)
     image = models.ImageField(default='Bunny-avatar.gif', upload_to=user_media_upload_handler)
+    merits = models.ManyToManyField(Merit, through=Awardance, blank=True)
 
     REQUIRED_FIELDS = ['nickname', 'email']

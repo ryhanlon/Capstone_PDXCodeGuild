@@ -133,19 +133,23 @@ class Asset(models.Model):
     text = models.TextField(max_length=5000, blank=True, null=True)
     file = models.FileField(upload_to=book_media_upload_handler, default='default_cover.jpg')
 
-    def truncate(self, amount=25):
+    def truncator(self, amount=25):
         """
         Truncates text, shorten for the __str__
         """
         if self.text is not None:
 
-            result = self.text[:amount]
+            text = self.text[:amount]
+            return text
 
-            return result
+        else:
+            return None
 
     def __str__(self):
 
-        message = f'{self.bookpage.book.title} | {self.bookpage.name} | Pg {self.bookpage.page_order} | {self.type} | {self.truncate()} | {self.slug}'
+        message = f'{self.bookpage.book.title} | {self.bookpage.name} | ' \
+                  f'Pg {self.bookpage.page_order} | {self.type} | {self.truncator()} | {self.slug}'
+
         return message
 
 
