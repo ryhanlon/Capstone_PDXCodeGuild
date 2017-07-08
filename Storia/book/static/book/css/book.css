@@ -23,6 +23,11 @@
     font-size: 2em;
 }
 
+.star-icon{
+    min-width: 2vh;
+    min-width: 2vh;
+
+}
 /*----------------------------------
         record icon /
 -----------------------------------*/
@@ -34,7 +39,14 @@
 
 }
 
-
+#record {
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    font-size: 2em;
+    color: #5cb85c;
+    z-index: 3;
+}
 
 /*----------------------------------
         bookshelf.html
@@ -89,7 +101,7 @@ img {
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-    /*background-color: rgba(159, 0, 255, 0.9);*/
+    background-color: rgb(200, 200, 0);
     height: 30vh;
     /*width: 20wh;*/
     margin: 0 20px;
@@ -221,14 +233,7 @@ ul{
 }
 
 
-#record {
-    position: absolute;
-    top: 10%;
-    left: 2%;
-    font-size: 2em;
-    color: #5cb85c;
-    z-index: 3;
-}
+
 
 .chapter {
     position: absolute;

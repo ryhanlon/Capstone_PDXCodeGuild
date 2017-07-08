@@ -8,4 +8,3 @@ $('.play_sound').on('click', function () {
 );
 
 
-// keep track of the clicks from the words and video
