@@ -61,8 +61,16 @@
     {#----- Video  -----#}
     {% block media %}
 
+        <section class="control-panel">
+
+            <button id="video-play-pause" onclick="playPause()">Play | Pause</button>
+
+        </section>
         <section class="video-container">
-            <video controls id="myvideo" poster="" controls>
+
+
+            <video  id="myvideo" poster="">
+
 
 
                 <source src="{{ assets.video.file.url }}" type="video/mp4">

@@ -13,12 +13,12 @@ def user_media_upload_handler(instance, filename) -> str:
     return f"{instance.image}/{filename}"
 
 
-class Profile(models.Model):
-    """
-    Collects the clicks from the story page.  Sent by AJAX call.
-    """
-
-    life_clicks = models.PositiveIntegerField(default=1)
+# class Profile(models.Model):
+#     """
+#     Collects the clicks from the story page.  Sent by AJAX call.
+#     """
+#
+#     life_clicks = models.PositiveIntegerField(default=1)
 
 
 class User(AbstractUser):
@@ -35,6 +35,6 @@ class User(AbstractUser):
     nickname = models.CharField(max_length=300)
     image = models.ImageField(default='Bunny-avatar.gif', upload_to=user_media_upload_handler)
     merits = models.ManyToManyField(Merit, through=Awardance, blank=True)
-    profile = models.OneToOneField(Profile)
+    # profile = models.OneToOneField(Profile)
 
     REQUIRED_FIELDS = ['nickname', 'email']

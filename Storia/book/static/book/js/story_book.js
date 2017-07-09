@@ -5,6 +5,28 @@
 "use strict";
 
 
+// play and pause the video with the play/pause button
+let myVideo = document.getElementById("myvideo");
+
+function playPause() {
+    if (myVideo.paused)
+        myVideo.play();
+
+    else
+        myVideo.pause();
+
+}
+
+
+// play sound on click, for words
+$('.play_sound').on('click', function () {
+    let sound = $(this).siblings('audio')[0];
+    console.log(`playing sound... ${sound}`);
+    sound.play();
+}
+);
+
+
 // After 10 clicks, send to db for star
 
 
