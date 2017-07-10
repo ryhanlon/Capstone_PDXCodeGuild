@@ -29,6 +29,15 @@
     /*max-width: 5vh;*/
 
 }
+
+/*#avatar {*/
+    /*position: absolute;*/
+    /*top: 10%;*/
+    /*right: 2%;*/
+    /*font-size: 2em;*/
+    /*color: #5cb85c;*/
+    /*z-index: 3;*/
+/*}*/
 /*----------------------------------
         record icon /
 -----------------------------------*/
@@ -93,14 +102,22 @@
     position: fixed;
     top: 50%; left: 50%;
     z-index: 1;
-    /*width: 100%;*/
-    /*height: 100%;*/
+    width: 100%;
+    height: 100%;
     min-width: 100%;
     min-height: 100%;
-    width: auto;
-    height: auto;
+    /*width: auto;*/
+    /*height: auto;*/
     transform: translate(-50%, -50%);
 }
+
+
+/*.video-container {*/
+    /*max-width: 100%;*/
+    /*!*background-color: #2b542c;*!*/
+    /*!*background-size: cover;*!*/
+
+/*}*/
 /*----------------------------------
         bookshelf.html
 -----------------------------------*/
@@ -144,7 +161,6 @@ body {
     background-color: rgba(159, 159, 159, 0.9);
     height: 40vh;
 
-
 }
 
 /*img {*/
@@ -173,7 +189,6 @@ figcaption  {
 }
 
 
-
  /*--------------------------------------
         display_book.html
 --------------------------------------*/
@@ -198,7 +213,7 @@ figcaption  {
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-   background-color: rgb(181, 31, 114);
+    background-color: rgb(181, 31, 114);
     min-height: 74%;
     width: 100%;
 
@@ -255,163 +270,210 @@ ul{
 /*----------------------------------
         story_page.html
 -----------------------------------*/
-/*#story-book-container {*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*flex-wrap: wrap;*/
-    /*justify-content: space-around;*/
-    /*align-items: center;*/
-    /*align-content: space-around;*/
-    /*background-color: rgba(180, 82, 137, 0.9);*/
-    /*height: 80vh;*/
-    /*width:80wh;*/
-/*}*/
-
-
-
-/*.video-container {*/
-    /*max-width: 100%;*/
-    /*!*background-color: #2b542c;*!*/
-    /*!*background-size: cover;*!*/
-
-/*}*/
-
-#avatar {
-    position: absolute;
-    top: 10%;
-    right: 2%;
-    font-size: 2em;
-    color: #5cb85c;
-    z-index: 3;
-}
-
-
-
-
 .chapter {
     position: absolute;
     top: -2%;
     left: 40%;
     font-size: 3em;
-    color: #5cb85c;
+    color: #a8a8a8;
     z-index: 3;
 }
 
-/**/
-/*#text {*/
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*flex-wrap: wrap;*/
-    /*justify-content: flex-start;*/
-    /*height: 30%;*/
+
+.page-text {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /*align-items: center ;*/
+    align-content: flex-start;
     /*position: absolute;*/
-    /*bottom: 10%;*/
-    /*right: 20%;*/
-    /*font-size: 2.5em;*/
-    /*line-height: 1.75em;*/
-    /*color: #5cb85c;*/
-    /*z-index:3;*/
-/*}*/
-
-
-/* Game */
-.word-1 {
-    /*height: 30%;*/
-    position: absolute;
-    bottom: 50%;
+    background-color: rgba(180, 82, 137, 0.9);
+    max-height: 80%;
+    max-width:50%;
+    bottom: 20%;
     right: 40%;
-    font-size: 2.5em;
-    line-height: 1.75em;
-    color: #5cb85c;
-    z-index:3;
-
+    z-index: 4;
 }
 
-/* Where */
-.word-2 {
-    /*height: 30%;*/
-    position: absolute;
-    bottom: 40%;
-    right: 40%;
-    font-size: 2.5em;
-    line-height: 1.75em;
-    color: #5cb85c;
-    z-index: 2;
-}
-
-/* is */
-.word-3 {
-    /*height: 30%;*/
-    position: absolute;
-    bottom: 40%;
-    right: 36%;
-    font-size: 2.5em;
-    line-height: 1.75em;
-    color: #5cb85c;
-    z-index:3;
-
-}
-
-/* the river */
-.word-4 {
-    /*height: 30%;*/
-    position: absolute;
-    bottom: 40%;
-    right: 22%;
-    font-size: 2.5em;
-    line-height: 1.75em;
-    color: #5cb85c;
-    z-index: 3;
-}
-
-/* Game */
-.word-5 {
-    /*height: 30%;*/
+.text {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*justify-content: flex-start;*/
+    /*align-items: flex-start;*/
+    /*align-self: center;*/
+    /*max-height: 40vw;*/
+    /*max-width: 50%;*/
     position: absolute;
     bottom: 30%;
-    right: 40%;
+    right: 16%;
     font-size: 2.5em;
     line-height: 1.75em;
-    color: #5cb85c;
-    z-index:3;
-
-}
-
-/* Where */
-.word-6 {
-    /*height: 30%;*/
-    position: absolute;
-    bottom: 20%;
-    right: 40%;
-    font-size: 2.5em;
-    line-height: 1.75em;
-    color: #5cb85c;
-    z-index: 2;
-}
-
-/* is */
-.word-7 {
-    /*height: 30%;*/
-    position: absolute;
-    bottom: 20%;
-    right: 36%;
-    font-size: 2.5em;
-    line-height: 1.75em;
-    color: #5cb85c;
-    z-index:3;
-
-}
-
-/* the river */
-.word-8 {
-    /*height: 30%;*/
-    position: absolute;
-    bottom: 20%;
-    right: 22%;
-    font-size: 2.5em;
-    line-height: 1.75em;
-    color: #5cb85c;
-    z-index: 3;
+    /*word-spacing: 10px;*/
+    color: #a8a8a8;
+    z-index:4;
 }
 
 
+/*!* Snowflakes *!*/
+/*.word-1 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 50%;*/
+    /*right: 35%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index:3;*/
+
+/*}*/
+
+/*!* swirl *!*/
+/*.word-2 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 50%;*/
+    /*right: 27%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index: 2;*/
+/*}*/
+
+/*!* snowflakes *!*/
+/*.word-3 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 40%;*/
+    /*right: 35%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index:3;*/
+
+/*}*/
+
+/*!* twirl *!*/
+/*.word-4 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 40%;*/
+    /*right: 27%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index: 3;*/
+/*}*/
+
+/*!* down *!*/
+/*.word-5 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 30%;*/
+    /*right: 42%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index:3;*/
+
+/*}*/
+
+/*!* to *!*/
+/*.word-6 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 30%;*/
+    /*right: 38%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index: 2;*/
+/*}*/
+
+/*!* the *!*/
+/*.word-7 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom:30%;*/
+    /*right: 33%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index:3;*/
+
+/*}*/
+
+/*!* ground *!*/
+/*.word-8 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 30%;*/
+    /*right: 24%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index: 3;*/
+/*}*/
+
+/*!* on *!*/
+/*.word-9 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 20%;*/
+    /*right: 45%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index:3;*/
+
+/*}*/
+
+/*!* this *!*/
+/*.word-10 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 20%;*/
+    /*right: 39%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index: 3;*/
+/*}*/
+
+/*!* cold *!*/
+/*.word-11 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 20%;*/
+    /*right: 32%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index:3;*/
+
+/*}*/
+
+/*!* snowy *!*/
+/*.word-12 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 20%;*/
+    /*right: 23%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index: 3;*/
+/*}*/
+
+/*!* night *!*/
+/*.word-13 {*/
+    /*!*height: 30%;*!*/
+    /*position: absolute;*/
+    /*bottom: 20%;*/
+    /*right: 15%;*/
+    /*font-size: 2.5em;*/
+    /*line-height: 1.75em;*/
+    /*color: #16030e;*/
+    /*z-index: 3;*/
+/*}*/
