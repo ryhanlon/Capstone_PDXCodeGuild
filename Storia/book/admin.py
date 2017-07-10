@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Asset, Book, BookPage
+from .models import Asset, Book, BookPage, Word, Line
 from django.contrib import admin
 
 
@@ -26,5 +26,5 @@ class BookPageAdmin(admin.ModelAdmin):
 admin.site.register(BookPage, BookPageAdmin)
 admin.site.register(Book, BookAdmin)
 admin.site.register(Asset)
-
-
+admin.site.register(Line)
+admin.site.register(Word)

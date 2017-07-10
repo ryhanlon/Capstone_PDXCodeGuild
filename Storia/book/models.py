@@ -1,5 +1,4 @@
 from django.db import models
-from pages.models import Page
 from django.utils.text import slugify
 
 
@@ -20,7 +19,7 @@ class Book(models.Model):
     """
     Stores the publishing information for the pages: title, author, pubdate,
     copyright, reading level, word count, isbn.
-    ForeignKey: with Page 'books'
+    ForeignKey: pages.Page 'books'
 
     """
 
@@ -39,7 +38,7 @@ class Book(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
-    webpage = models.ForeignKey(Page, related_name='books', blank=True, null=True)
+    webpage = models.ForeignKey('pages.Page', related_name='books', blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -67,9 +66,15 @@ class BookPage(models.Model):
     Template for the story pages.
     ForeignKey: with Book 'pages'
     """
+    PAGE_TYPE = (
+        ('BPG', 'book pages'),
+        ('GPG', 'game pages'),
+        ('DPG', 'dashboard pages'),
+    )
 
     book = models.ForeignKey(Book, related_name='pages')
     slug = models.SlugField(editable=False, blank=True)
+    type = models.CharField(max_length=3, choices=PAGE_TYPE)
 
     name = models.CharField(max_length=245, blank=True, null=True)
     is_title_page = models.BooleanField(default=False)
@@ -95,21 +100,30 @@ def book_media_upload_handler(instance, filename) -> str:
 
     """
 
-    # return f"{instance.page.name}/{filename}"
     return f"{instance.bookpage.book.title}/{instance.bookpage.name}/{filename}"
+
+
+class Line(models.Model):
+    """
+    Assign each TXA type (text and audio) to a text line on the page.
+    Foreign key with Page 'lines'
+    """
+    order = models.PositiveSmallIntegerField()
+    page = models.ForeignKey(BookPage, related_name="lines")
+    audio = models.FileField(upload_to=book_media_upload_handler)
+
+    def __str__(self):
+        message = f'{self.order} | {self.bookpage.book.title}'
+
+        return message
 
 
 class Asset(models.Model):
     """
     Stores media for the storybook and game to be used for layout.
+    Foreign Key: with BookPage 'assets'
 
     """
-    PAGE_TYPE = (
-        ('BPG', 'book pages'),
-        ('GPG', 'game pages'),
-        ('DPG', 'dashboard pages'),
-    )
-
     ASSET_TYPE = (
         ('AUD', 'audio'),
         ('VID', 'video'),
@@ -123,15 +137,13 @@ class Asset(models.Model):
     composer = models.CharField(max_length=256, blank=True, null=True)
     locus = models.PositiveSmallIntegerField(default=0)
 
-    page_type = models.CharField(max_length=3, choices=PAGE_TYPE)
     slug = models.SlugField(editable=False, blank=True)
     bookpage = models.ForeignKey(BookPage, related_name='assets')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
     type = models.CharField(max_length=3, choices=ASSET_TYPE)
-    text = models.TextField(max_length=5000, blank=True, null=True)
-    file = models.FileField(upload_to=book_media_upload_handler, default='default_cover.jpg')
+    file = models.FileField(upload_to=book_media_upload_handler, blank=True, null=True)
 
     def truncator(self, amount=25):
         """
@@ -153,5 +165,30 @@ class Asset(models.Model):
         return message
 
 
+class Word(Asset):
+    """
+    Combining the word and audio file, word count.
+    Foreign Key: with Line 'words'
+    """
+    text = models.CharField(max_length=256, blank=True, null=True)
+    audio = models.FileField(upload_to=book_media_upload_handler, blank=True, null=True)
+    length = models.PositiveSmallIntegerField()
+    line = models.ForeignKey(Line, related_name="words")
 
+    def __len__(self):
+        """
+        Counts the letters of each word.
+        """
+        return len(self.word)
+
+    def __add__(self, other):
+        """
+        Allows to concat with +
+        """
+        return self.word + other.word
+
+    def __str__(self):
+        message = f'{self.word} | {self.bookpage.book.title}'
+
+        return message
 
