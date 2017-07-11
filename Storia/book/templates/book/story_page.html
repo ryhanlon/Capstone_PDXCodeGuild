@@ -13,7 +13,7 @@
 
 {#----- Recording icon -----#}
 {% block record_icon %}
-    <section id="record-container">
+    <section id="record-container" class="icon-group">
 
         <img class="record-image" src="{{ assets.record_icon.first.file.url }}">
 
@@ -26,19 +26,43 @@
 {#----- Story text -----#}
 {% block text %}
 
-    <section class="text page-text">
+    <section class="text page-text icon-group">
 
-        {% for word in assets.words %}
-            <div class="word-{{ forloop.counter }}">
-                <audio id="audio" data-id="{{ word.id }}" src="{{ word.file.url }}" autostart="false"></audio>
-                <a class="play_sound asset">{{ word.text }}</a>
-            </div>
+        {% for line in assets.lines %}
+
+            <article class="line" id="line-{{ forloop.counter }}">
+                {% for word in line.words.all %}
+                    <div class="word" id="word-{{ forloop.counter }}">
+                        <audio id="audio" data-id="{{ word.id }}" src="{{ word.audio.url }}" autostart="false"></audio>
+                        <a class="play_sound asset">{{ word.text }}</a>
+                    </div>
+                {% endfor %}
+            </article>
+
         {% endfor %}
 
     </section>
 
 
 {% endblock %}
+
+
+{#----- Story text -----#}
+{#{% block text %}#}
+{##}
+{#    <section class="text page-text">#}
+{##}
+{#        {% for word in assets.words %}#}
+{#            <div class="word-{{ forloop.counter }}">#}
+{#                <audio id="audio" data-id="{{ word.id }}" src="{{ word.file.url }}" autostart="false"></audio>#}
+{#                <a class="play_sound asset">{{ word.text }}</a>#}
+{#            </div>#}
+{#        {% endfor %}#}
+{##}
+{#    </section>#}
+{##}
+{##}
+{#{% endblock %}#}
 
 
 

@@ -5,17 +5,58 @@
 "use strict";
 
 
+// icons come on page after the video
+
 // play and pause the video with the play/pause button
-let myVideo = document.getElementById("myvideo");
+const myVideo = $("#myvideo");
 
-function playPause() {
-    if (myVideo.paused)
-        myVideo.play();
+$(document).on('ready', function(){
 
-    else
-        myVideo.pause();
+    myVideo.bind('ended', function() {
+        $('.icon-group').css('visibility', 'visible');
+       $('.icon-group').show();
+       console.log('let me see you');
+    });
 
-}
+    myVideo.bind('play', function() {
+       $('.icon-group').hide();
+       console.log('goodbye and thanks for the fish');
+    });
+
+
+});
+
+$('#video-play').click(function(){
+    console.log('it is playing');
+    $('#myvideo')[0].play();
+
+});
+
+
+$('#video-pause').click(function(){
+    console.log('it is paused');
+    $('#myvideo')[0].pause();
+
+});
+
+
+// function playPause() {
+//     if (myVideo.paused)
+//         myVideo.play();
+//
+//     else
+//         myVideo.pause();
+// }
+
+
+
+// function playVid() {
+//     myVideo.play();
+// }
+//
+// function pauseVid() {
+//     myVideo.pause();
+// }
 
 
 // play sound on click, for words

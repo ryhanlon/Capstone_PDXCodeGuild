@@ -63,15 +63,16 @@
 
         <section class="control-panel">
 
-            <button id="video-play-pause" onclick="playPause()">Play | Pause</button>
+            <button  id="video-play" class="control-buttons play-button">Play</button>
+            <button  id="video-pause" class="control-buttons pause-button">Pause</button>
 
         </section>
         <section class="video-container">
 
-            <video  controls id="myvideo" poster="">
+            <video autoplay id="myvideo" poster="">
 
 {#                <source src="/media/Snowman Salsa/A Snowy Night/ss_scene_1.mp4" type="video/mp4">#}
-{#                <source src="{{ assets.video.file.url }}" type="video/mp4">#}
+                <source src="{{ assets.video.file.url }}" type="video/mp4">
                 Your browser does not support HTML5 video.
             </video>
         </section>
