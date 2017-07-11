@@ -110,10 +110,10 @@ class Line(models.Model):
     """
     order = models.PositiveSmallIntegerField()
     page = models.ForeignKey(BookPage, related_name="lines")
-    audio = models.FileField(upload_to=book_media_upload_handler)
+    audio = models.FileField(upload_to=book_media_upload_handler, blank=True, null=True)
 
     def __str__(self):
-        message = f'{self.order} | {self.bookpage.book.title}'
+        message = f'{self.order} | {self.page.book.title}'
 
         return message
 
@@ -145,22 +145,22 @@ class Asset(models.Model):
     type = models.CharField(max_length=3, choices=ASSET_TYPE)
     file = models.FileField(upload_to=book_media_upload_handler, blank=True, null=True)
 
-    def truncator(self, amount=25):
-        """
-        Truncates text, shorten for the __str__
-        """
-        if self.text is not None:
-
-            text = self.text[:amount]
-            return text
-
-        else:
-            return None
+    # def truncator(self, amount=25):
+    #     """
+    #     Truncates text, shorten for the __str__
+    #     """
+    #     if self.text is not None:
+    #
+    #         text = self.text[:amount]
+    #         return text
+    #
+    #     else:
+    #         return None
 
     def __str__(self):
 
-        message = f'{self.bookpage.book.title} | {self.bookpage.name} | ' \
-                  f'Pg {self.bookpage.page_order} | {self.type} | {self.truncator()} | {self.slug}'
+        message = f'{self.bookpage.book.title} | {self.bookpage} | ' \
+                  f'Pg {self.bookpage.page_order} | {self.type} | {self.slug}'
 
         return message
 
@@ -188,7 +188,8 @@ class Word(Asset):
         return self.word + other.word
 
     def __str__(self):
-        message = f'{self.word} | {self.bookpage.book.title}'
+        message = f'{self.text} | {self.line.order} | {self.bookpage} | {self.bookpage.book.title}' \
+                  f'|{self.audio} '
 
         return message
 

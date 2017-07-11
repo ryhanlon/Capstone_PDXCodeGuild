@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Book, BookPage, Asset
+from .models import Book, BookPage
 
 
 
@@ -10,12 +10,14 @@ def story_page(request, book_slug, page_slug):
     """
 
     page = BookPage.objects.get(book__slug=book_slug, slug=page_slug)
+
     assets = page.assets.all()
+    lines = page.lines.all()
 
     asset_data = {
               'video': assets.filter(type='VID')[0],
               'record_icon': assets.filter(type='IMA'),
-              'words': assets.filter(type='TXA'),
+              'lines': lines,
               'merits': assets.filter(type='IMG'),
              }
 
