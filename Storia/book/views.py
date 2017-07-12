@@ -13,12 +13,13 @@ def story_page(request, book_slug, page_slug):
 
     assets = page.assets.all()
     lines = page.lines.all()
+    merits = request.user.merits.order_by('-stage')
 
     asset_data = {
               'video': assets.filter(type='VID')[0],
               'record_icon': assets.filter(type='IMA'),
               'lines': lines,
-              'merits': assets.filter(type='IMG'),
+              'merits': merits,
              }
 
     context = {'page': page, 'assets': asset_data}

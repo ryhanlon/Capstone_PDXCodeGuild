@@ -10,7 +10,7 @@ def user_media_upload_handler(instance, filename) -> str:
     """
 
     # return f"{instance.page.name}/{filename}"
-    return f"{instance.image}/{filename}"
+    return f"{instance.title}/{filename}"
 
 
 class Profile(models.Model):
@@ -19,6 +19,19 @@ class Profile(models.Model):
     """
 
     life_clicks = models.PositiveIntegerField(default=1)
+
+
+class Merit(models.Model):
+    """
+    Manages the merits that each user can earn.
+
+    """
+    image = models.ImageField(upload_to=user_media_upload_handler)
+    stage = models.PositiveSmallIntegerField()
+    title = models.CharField(max_length=256)
+
+    def __str__(self):
+        return f"Level and types of awards to earn."
 
 
 class User(AbstractUser):
@@ -34,7 +47,22 @@ class User(AbstractUser):
 
     nickname = models.CharField(max_length=300)
     image = models.ImageField(default='Bunny-avatar.gif', upload_to=user_media_upload_handler)
-    merits = models.ManyToManyField('insights.Merit', blank=True)
+    merits = models.ManyToManyField(Merit, blank=True, through='Awardance', related_name='users')
     profile = models.OneToOneField(Profile, null=True, blank=True)
 
     REQUIRED_FIELDS = ['nickname', 'email']
+
+
+class Awardance(models.Model):
+    """
+    Through table for ManyToMany relation.
+    User 'awards' | Merit 'recognitions
+    """
+    user = models.ForeignKey(User, related_name='awards')
+    merit = models.ForeignKey(Merit, related_name='recognitions')
+
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"History of {self.user.username}'s awards."
+
