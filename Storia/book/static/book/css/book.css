@@ -175,7 +175,7 @@ li {
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 1px 1px 3px black;
-    transition: background-color .7s, color .7s;
+    transition: background-color .5s, color .5s;
 }
 
 /*.control-buttons:hover {*/
@@ -283,8 +283,8 @@ body {
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-    background-color: rgba(159, 159, 159, 0.9);
-    height: 40vh;
+    /*background-color: rgba(159, 159, 159, 0.9);*/
+    padding: 20px 30px;
 }
 
 
@@ -298,8 +298,17 @@ figure {
 figcaption  {
     align-items: center;
     font-size: 1.2em;
+    color: white;
 }
 
+
+/*----- book covers -----*/
+.book-covers {
+    width: 200px;
+    height: 200px;
+    box-shadow: 1px 1px 3px #bfbfbf;
+
+}
 
  /*--------------------------------------
         display_book.html
@@ -347,6 +356,8 @@ figcaption  {
 
 .title {
     font-size: 4em;
+    color: white;
+    text-shadow: 2px 0 grey;
 
 }
 
@@ -373,6 +384,7 @@ ul{
 .content-slider h3 {
     margin: 0;
     padding: 70px 0;
+    color: white;
 }
 
 
@@ -404,9 +416,11 @@ ul{
     bottom: 30%;
     right: 16%;
     background-color: rgba(6, 27, 48, 0.6);
-    font-size: 2.5em;
+    /*font-size: 2.5em;*/
     line-height: 1.75em;
-    color: #f8f8f8;
+    /*color: #f8f8f8;*/
+    padding: 20px 0;
+    border-radius: 25px;
     z-index:4;
 }
 
@@ -414,7 +428,7 @@ ul{
 .line {
     display: flex;
     align-content: flex-start;
-    margin: 0 40px;
+    margin: 20px 40px;
     width: 100%;
 
 }
@@ -422,5 +436,19 @@ ul{
 
 .word {
     margin: 0 10px;
+    font-size: 2.5em;
+    color: #f8f8f8;
+    transition: font-size .5s;
+
+}
+
+.word:hover {
+    /*font-size: 2.5em;*/
+    color: #dd24a3;
+    text-shadow: 1px 0 #dfdfdf;
+}
+
+.word:active {
+    text-shadow: 1px 0 grey;
 }
 
