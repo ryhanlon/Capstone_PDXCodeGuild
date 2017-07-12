@@ -28,19 +28,20 @@
         <hr>
 
                 {#------ badges here -------#}
-                {% for badge in request.user.bagdes.all %}
-
-                    <div class="badges">
-                     <img class="badge-icon" src=" {{ merit.image.url }}">
-                    </div>
-
-                {% endfor %}
+{#                {% for merit in assets.mertis %}#}
+{##}
+{#                    <div class="stars">#}
+{#                #}
+{#                     <img class="star-icon" src=" {{ merit.image.url }}">#}
+{#                    </div>#}
+{##}
+{#                {% endfor %}#}
 
             <hr>
                 {#------ stars here -------#}
 
-                {% for merit in request.user.merits.all %}
-
+                {% for merit in assets.merits %}
+{#                    <h3>{{ merit.stage }}</h3>#}
                     <div class="stars">
                      <img class="star-icon" src=" {{ merit.image.url }}">
                     </div>
@@ -52,11 +53,11 @@
             <div class="questions">
 
                 <form action="/action_page.php">
-                    <input type="checkbox" name="read-today" value="Bike">I read today!
+                    <input class="modal-statement" type="checkbox" name="read-today" value="read-today">I read today!
                     <br>
-                    <input type="checkbox" name="clicked-words" value="Car">I clicked the words!
+                    <input class="modal-statement" type="checkbox" name="clicked-words" value="clicked-words">I clicked the words!
                     <br>
-                    <input type="checkbox" name="clicked-audio" value="Car">I listened to the story!
+                    <input class="modal-statement" type="checkbox" name="clicked-audio" value="clicked-audio">I listened to the story!
                     <br><br>
                     <input type="submit">
                 </form>

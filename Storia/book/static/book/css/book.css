@@ -15,6 +15,8 @@
 
 }
 
+
+/*--- avatar image ---*/
 #avatar-frame:hover {
     border: 4px dotted #7A23CC;
 }
@@ -23,9 +25,15 @@
     max-height: 18vh;
     max-width: 10vw;
 }
+
+/*--- badges ---*/
+
+
+/*--- stars ---*/
 .stars {
     max-height: 5vh;
     max-width: 10vw;
+    display: inline-block;
 
 }
 
@@ -35,7 +43,22 @@
 
 }
 
-/*--- badges --->
+/*--- radial statements ---*/
+
+.modal-statement {
+    font-size: 1em;
+    color: #7A23CC;
+
+}
+
+
+input[type=checkbox] .modal-statement {
+    color: red;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
 
 /*----------------------------------
   modal window for reading chart
