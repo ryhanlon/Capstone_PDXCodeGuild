@@ -5,14 +5,19 @@
     position: fixed;
     right: 1%;
     top: 1%;
-    background-color: #4C1CE3;
-    border: inset;
+    background-color: transparent;
+    border: 1px solid grey;
+    border-radius: 40%;
     height: 23vh;
     width: 12vw;
     z-index: 2;
+    transition: border .7s;
 
 }
 
+#avatar-frame:hover {
+    border: 4px dotted #7A23CC;
+}
 
 .avatar-image {
     max-height: 18vh;
@@ -30,6 +35,82 @@
 
 }
 
+/*----------------------------------
+  modal window for reading chart
+-----------------------------------*/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    -webkit-animation-name: zoomIn;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoomIn;
+    animation-duration: 0.6s;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content-away {
+	-webkit-animation-name: zoomOut;
+    -webkit-animation-duration: 1s;
+    animation-name: zoomOut;
+    animation-duration: 1s;
+}
+
+li {
+	list-style: none;
+}
+
+@-webkit-keyframes zoomIn {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoomIn {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+@-webkit-keyframes zoomOut {
+    from {-webkit-transform:scale(1)}
+    to {-webkit-transform:scale(0)}
+}
+
+@keyframes zoomOut {
+    from {transform:scale(1)}
+    to {-transform:scale(0)}
+}
 
 /*----------------------------------
         record icon /
@@ -43,16 +124,27 @@
     position: absolute;
     top: 2%;
     left: 1%;
-    width: 12%;
-    height: 20%;
-    background-color: #4C1CE3;
-    border: inset;
+    width: 8%;
+    height: 13%;
+    background-color: transparent;
+    box-shadow: 2px 3px 16px grey;
+    border-radius: 40%;
     z-index: 3;
+    transition: border .7s;
+}
+
+#record-container:hover {
+    box-shadow: 1px 1px 5px black;
+}
+
+#record-container:active {
+    box-shadow: 1px 1px 5px #7A23CC;
 }
 
 .record-image {
     max-height: 100%;
     max-width: 100%;
+
 
 }
 /*----------------------------------
@@ -79,13 +171,21 @@
     margin: 10px;
     /*padding: 8% 15%;*/
     font-size: 1.5em;
-    color: white;
-    background-color: #B91CE3;
+    color: black;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 1px 1px 3px black;
+    transition: background-color .7s, color .7s;
 }
 
+/*.control-buttons:hover {*/
+    /*background-color: ;*/
+    /**/
+/*}*/
 .play-button {
     padding: 8% 20%;
 }
+
 
 .pause-button {
     padding: 8% 15%;
@@ -94,12 +194,16 @@
 
 .control-buttons:hover {
     background-color: #7A23CC;
+    color: white;
+    outline: none;
 
 }
 
 
 .control-buttons:active {
     background-color: #D91AC4;
+    color: white;
+    outline: none;
 }
 
 

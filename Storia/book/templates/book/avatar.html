@@ -7,11 +7,11 @@
     <input id="merit-counter" type="hidden" value="0">
 
 
-
-    <figure id="avatar-frame" class="icon-group">
+    <div id="myBtn">
+        <figure id="avatar-frame" class="icon-group">
 
             <img class="avatar-image" src="{% static "book/images/Bunny-avatar.gif" %}">
-{#            <img class="avatar-image" src="{{ request.user.image.url }}">#}
+            {#            <img class="avatar-image" src="{{ request.user.image.url }}">#}
             <figcaption class="stars">
                 {% for merit in request.user.merits.all %}
                     <img class="star-icon" src=" {{ merit.image.url }}">
@@ -20,6 +20,19 @@
 
             </figcaption>
 
-    </figure>
+        </figure>
+    </div>
+
+<!------- modal windo ------->
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p><h2>Some text in the Modal..</h2></p>
+        </div>
+
+    </div>
 
 {% endblock %}
