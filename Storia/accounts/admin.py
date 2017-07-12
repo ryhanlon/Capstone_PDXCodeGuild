@@ -15,10 +15,12 @@ class TimeInteractionInline(admin.StackedInline):
 
 class UserAdmin(BaseUserAdmin):
     inlines = [
-        AssetInteractionInline,
-        TimeInteractionInline,
+        # AssetInteractionInline,
+        # TimeInteractionInline,
         # AwardanceInline
     ]
+
+    filter_horizontal = ('merits',)
 
 
 admin.site.register(User, UserAdmin)
