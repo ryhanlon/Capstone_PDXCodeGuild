@@ -23,8 +23,15 @@ link to project:
     c. author (future feature)-- access his or her dashboard that monitors user interactivity with the interactive online storybook books that he or she has authored.  This publishing feature can be done multiple ways such as embedding into the author's website or maintained in the Storia library.  Both will require deployments to be further explored and decided upon.
 3. REST Framework and other useful APIs 
 4. Initial development with db_sqlite3.  As project develops move to  PostgreSQL.
-5. Deploy to AWS, AWS Elastic Beanstalk.
+5. Deploy to AWS, AWS Elastic Beanstalk or Heroku.
 
 ### Usage
 
-TBD
+Storia is an app to make interactive storybooks for children learning to read.  Storia can be used by native or English speaking readers or EFL/ESL students learning English.  A user chooses/buys the books to be added to their bookshelf.  From here, the user clicks the cover of the storybook he or she wants to read which sends them to the opening page of the story where the user can begin at the beginning or choose a page.  
+
+Each storybook page is interactive.  The user can watch a full screen video of the storypage, click and hear each word, click the avatar icon to see his or her Reading Chart that shows the users reading progress, record his or her self telling the story, navigate to other pages of the story, and message option where user sends and receives messages from parent.  
+
+User interactions on the storypage are stored in the database.  These are then converted into 'merits' that show the students progress learning to read.  
+
+The process of designing and building each storybook is built into the Django admin.  All text and assets are stored in the database.  Using templates, template tags and template variables each storybook page is designed and shown on the webpage.  Each storybook page is NOT hardcoded but compiled upon requests to the server.
+
