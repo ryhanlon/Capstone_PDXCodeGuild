@@ -50,7 +50,7 @@ _Title Page/Book Contents:_
 - Shows cover with title
 - Slider on bottom of page to go to chapter, clickable
 
-Here is a sample of the Bookself:
+Here is a sample of the Title page:
 ![Title page Mockup](img/title_page.png)
 
 
