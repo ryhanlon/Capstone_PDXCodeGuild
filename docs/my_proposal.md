@@ -79,7 +79,7 @@ Auto generation of the following pages:
 _The assets (text, images, audio, video) for the design of these pages are stored in the Django database.  Templates are used to generate the pages, with design managed through template tags, template variable, etc_
 
 Here is an overview of the basic website data outline:
-![Data Outline](img/CapStone_outline.png)
+![Data Outline](img/web_page_data_outline.png)
 
 - bookshelf  
 - title page
@@ -88,7 +88,7 @@ Here is an overview of the basic website data outline:
 _The assets (text, audio, video, images) are stored in the Django data base.  Django templates are used/designed so each page is build/compiled by accessing the data from the database by using template tags, template variables._
 
 Here is an overview of the basic storybook data outline:
-![Data Outline](img/CapStone_outline.png)
+![Data Outline](img/storypage_data_outline.png)
 
 Actions that will be collected, stored in the database, sorted/analyzed and finally visualized are the following:
 
