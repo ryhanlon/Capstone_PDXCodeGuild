@@ -79,7 +79,7 @@ Auto generation of the following pages:
 _The assets (text, images, audio, video) for the design of these pages are stored in the Django database.  Templates are used to generate the pages, with design managed through template tags, template variable, etc_
 
 Here is an overview of the basic website data outline:
-![Data Outline](img/web_page_data_outline.png)
+![Data Outline](/img/web_page_data_outline.png)
 
 - bookshelf  
 - title page
