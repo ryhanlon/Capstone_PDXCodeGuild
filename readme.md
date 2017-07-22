@@ -8,8 +8,9 @@ Title: Storia
 Storia is a web app for children to learn to read with interactive storybooks. It turns plain stories into interactive stories with an analyses of the child's progress. 
 
 It is divided into two main parts: 
-    1. user interactivity with the storybook page (click and hear words, unscramble words and sentences, play video, record audio)
-    2. collects user interface data, stores the data, visualizes and analyzes the data and shares the data.
+
+   1. user interactivity with the storybook page (video opening, play video, record audio, click and hear words, unscramble words and sentences, chapter navigation, earning merits)
+   2. collects user interface data, stores the data, visualizes and analyzes the data and shares the data.
 
 link to project:
 <a href="docs/my_proposal.md">Rebecca's Proposal</a>
@@ -27,11 +28,11 @@ link to project:
 
 ### Usage
 
-Storia is an app to make interactive storybooks for children learning to read.  Storia can be used by native or English speaking readers or EFL/ESL students learning English.  A user chooses/buys the books to be added to their bookshelf.  From here, the user clicks the cover of the storybook he or she wants to read which sends them to the opening page of the story where the user can begin at the beginning or choose a page.  
+Storia is an app to make interactive storybooks for children learning to read.  Storia can be used by native English speaking readers or EFL/ESL students learning English.  A user chooses/buys the books to be added to their bookshelf.  From here, the user clicks the cover of the storybook he or she wants to read which sends them to the opening page of the story where the user can begin at the beginning or choose a page.  
 
 Each storybook page is interactive.  The user can watch a full screen video of the storypage, click and hear each word, click the avatar icon to see his or her Reading Chart that shows the users reading progress, record his or her self telling the story, navigate to other pages of the story, and message option where user sends and receives messages from parent.  
 
-User interactions on the storypage are stored in the database.  These are then converted into 'merits' that show the students progress learning to read.  
+User interactions on the storypage are stored in the database.  These are then analyzed and sorted into 'merits' that show the students progress while learning to read.  
 
-The process of designing and building each storybook is built into the Django admin.  All text and assets are stored in the database.  Using templates, template tags and template variables each storybook page is designed and shown on the webpage.  Each storybook page is NOT hardcoded but compiled upon requests to the server.
+The process of designing and building each storybook is built into the Django admin.  All text and assets are stored in the database.  Using templates, template tags and template variables each storybook page is designed and shown on the webpage.  Each storybook page is NOT hardcoded but compiled upon requests to the server (lots of Django fun).
 
