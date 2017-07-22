@@ -102,15 +102,15 @@ The Reading Chart will visually display these actions with 'merits'.  Stars and 
 
 
 ### Technical Components
-++ this will become more specific and clear as the project evolves (next draft of this document)
 
-- jQuery/HTML: capturing the clicks, time on screen user data on the server and then sending to Django framework  +still researching options, is there an API that facilitates this
+- jQuery/Ajax: capturing the clicks, time on screen user data on the server and then sending to Django REST framework  
 - Bootstrap: Log-in and dashboard design
 - jQuery UI: accordion, droppable, sortable, date picker, select menu
-- Flexbox, JavaScript, etc: further functionality for web pages +used with HTML, CSS
-- d3j.org: block 6007521 (ball shaped, daily graph for data)
-- 3rd party(podsnack)/HTML & CSS/JQuery for audio player and or recorder
-- Python/Django: building database on server (storing data, sending back and forth to server)
+- HTML, CSS (Flexbox), JavaScript(jQuery), for webpage design, interactions 
+- Django API: REST framework, User, and others
+- Third Party: jQuery lightSlider, by sachinchoolur.github
+- MediaStream Recording API,Mozilla Developer Network
+
 
 
 
@@ -120,17 +120,17 @@ The Reading Chart will visually display these actions with 'merits'.  Stars and 
 Time will be split between the front-end and the back-end.  At this time this is a rough estimate due to lack of knowledge about Django
 
 ****week one:****
-- front-end: finish the mockup of the _story page_, _unscramble page_, wireframe the dashboards
+- front-end: create the mockup of the _home page_, _story page_
 
-- back-end: start learning Jdango and wireframe how to connect, store and send data to the client. Continue to plan how to visualize the data from the user interactions and send back to server/email.  
+- back-end: start learning Jdango, build models to store the assets, storybook information, website assets information; veiws to render to the client, templates for format the design 
 
 ****week two:****
-- front-end: implement basic functionality on the web page for _story page_ and _unscramble page_, mockup of the _dashboards_
-- back-end: complete back-end wireframes/outline, start building the framework to collect the data from the _story page_ and _unscramble page_
+- front-end: using Django templates, build the home_page, bookshelf_page, story_page, display_page
+- back-end: automate the website pages and the storybook pages using templates, template tags and template variables; build asset models, merit models (store the interactions from the page)--keep refining the models.
 
 ****week three:****
-- front-end: continue to build and fine tune the functionality on the web page for _story page_, _unscramble page_, the _dashboards_
-- back-end: continue to build the framework to collect the data from the _story page_, _unscramble page_ and the _dashboard_
+- front-end: add the REST framework for collecting the user interactions and User interface to register, logIn, Profile, logOut
+- back-end: continue to refine the models and templates, all assets (images, videos, audio, text) are stored in the database, used by the templates
 
 ****week four:****
 - front-end: finish up details, prepare presentation
@@ -139,11 +139,14 @@ Time will be split between the front-end and the back-end.  At this time this is
 
 ### Further Work
 
-Options:
+Feature Options:
 - audio player to record and send clip to email address
 - secured option/modal window for parent to manage emails, calendar for progress reports that child can't access
+- add play pages: unscramble words and sentences (drag and drop), color pages, matching)
 - messages from child to parent and parent to child 
+- finish one story book 
+- change data base from db_sqlite3 to  PostgreSQL
 - teacher dashboard, with environment to contact her entire class
 - package this project as an online story book library, then offer publishing service to independent authors
-- finish one story book 
-- add play pages: unscramble words and sentences (drag and drop), color pages, matching)
+
+
