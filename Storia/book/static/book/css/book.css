@@ -12,7 +12,6 @@
     width: 12vw;
     z-index: 2;
     transition: border .7s;
-
 }
 
 
@@ -34,7 +33,6 @@
     max-height: 5vh;
     max-width: 10vw;
     display: inline-block;
-
 }
 
 .star-icon{
@@ -44,13 +42,10 @@
 }
 
 /*--- radial statements ---*/
-
 .modal-statement {
     font-size: 1em;
     color: #7A23CC;
-
 }
-
 
 input[type=checkbox] .modal-statement {
     color: red;
@@ -59,6 +54,7 @@ input[type=checkbox] .modal-statement {
     margin: 8px 0;
     box-sizing: border-box;
 }
+
 
 /*----------------------------------
   modal window for reading chart
@@ -137,6 +133,7 @@ li {
     to {-transform:scale(0)}
 }
 
+
 /*----------------------------------
         record icon /
 -----------------------------------*/
@@ -169,13 +166,10 @@ li {
 .record-image {
     max-height: 100%;
     max-width: 100%;
-
-
 }
 /*----------------------------------
         control panel
 -----------------------------------*/
-
 .control-panel {
     position: absolute;
     bottom: 10%;
@@ -186,9 +180,7 @@ li {
     /*background-color: #67b168;*/
     z-index: 3;
     text-align: left;
-
 }
-
 
 .control-buttons {
     /*max-width: 100%;*/
@@ -207,30 +199,26 @@ li {
     /*background-color: ;*/
     /**/
 /*}*/
+
 .play-button {
     padding: 8% 20%;
 }
-
 
 .pause-button {
     padding: 8% 15%;
 }
 
-
 .control-buttons:hover {
     background-color: #7A23CC;
     color: white;
     outline: none;
-
 }
-
 
 .control-buttons:active {
     background-color: #D91AC4;
     color: white;
     outline: none;
 }
-
 
 #myvideo {
     position: fixed;
@@ -245,13 +233,12 @@ li {
     transform: translate(-50%, -50%);
 }
 
-
 .video-container {
     max-width: 100%;
     background-color: #2b542c;
     background-size: cover;
-
 }
+
 
 /*----------------------------------
   icon-group (visible/invisible)
@@ -259,21 +246,15 @@ li {
 .icon-group {
     display: none;
     visibility: hidden;
-
 }
-
-
-
 
 
 /*----------------------------------
         bookshelf.html
 -----------------------------------*/
-
 body {
     margin: 0;
 }
-
 
 #container {
     display: flex;
@@ -287,7 +268,6 @@ body {
     width:100%;
 }
 
-
 .shelf {
     display: flex;
     flex-direction: row;
@@ -300,7 +280,6 @@ body {
     /*width: 35wh;*/
 }
 
-
 .frame {
     display: flex;
     flex-direction: column;
@@ -312,13 +291,11 @@ body {
     padding: 20px 30px;
 }
 
-
 figure {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 
 figcaption  {
     align-items: center;
@@ -326,19 +303,17 @@ figcaption  {
     color: white;
 }
 
-
 /*----- book covers -----*/
 .book-covers {
     width: 200px;
     height: 200px;
     box-shadow: 1px 1px 3px #bfbfbf;
-
 }
+
 
  /*--------------------------------------
         display_book.html
 --------------------------------------*/
-
 #display-book-container {
     display: flex;
     flex-direction: column;
@@ -351,7 +326,6 @@ figcaption  {
     width:100%;
 }
 
-
 .background {
     display: flex;
     flex-direction: column;
@@ -362,9 +336,7 @@ figcaption  {
     background-color: rgb(181, 31, 114);
     min-height: 74%;
     width: 100%;
-
 }
-
 
 .thumbnails {
     display: flex;
@@ -383,11 +355,9 @@ figcaption  {
     font-size: 4em;
     color: white;
     text-shadow: 2px 0 grey;
-
 }
 
-
- /*-- lightslider css --*/
+ /*-- lightSlider css --*/
 
 .lSSlideOuter{
     background-color: rgb(181, 31, 114);
@@ -399,19 +369,16 @@ ul{
     margin: 0;
 }
 
-
 .content-slider li{
     background-color: #b45289;
     text-align: center;
 }
-
 
 .content-slider h3 {
     margin: 0;
     padding: 70px 0;
     color: white;
 }
-
 
 .title-text {
     /*font-size: 1.5em;*/
@@ -432,7 +399,6 @@ ul{
     z-index: 3;
 }
 
-
 .page-text {
     display: flex;
     flex-direction: column;
@@ -449,22 +415,18 @@ ul{
     z-index:4;
 }
 
-
 .line {
     display: flex;
     align-content: flex-start;
     margin: 20px 40px;
     width: 100%;
-
 }
-
 
 .word {
     margin: 0 10px;
     font-size: 2.5em;
     color: #f8f8f8;
     transition: font-size .5s;
-
 }
 
 .word:hover {

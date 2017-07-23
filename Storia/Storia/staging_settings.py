@@ -11,4 +11,3 @@ DATABASES = {
         'PASSWORD': os.environ['AWS_PASSWORD'],
     }
 }
-

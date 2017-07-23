@@ -1,7 +1,6 @@
 {% load static %}
 
 
-
 <!----- add avatar ----->
 {% block avatar %}
     <input id="merit-counter" type="hidden" value="0">
@@ -23,9 +22,10 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p><h2>Reading Chart</h2>
+            <p>
+            <h2>Reading Chart</h2>
 
-        <hr>
+            <hr>
 
                 {#------ badges here -------#}
 {#                {% for merit in assets.mertis %}#}
@@ -38,15 +38,16 @@
 {#                {% endfor %}#}
 
             <hr>
+
                 {#------ stars here -------#}
 
-                {% for merit in assets.merits %}
-{#                    <h3>{{ merit.stage }}</h3>#}
-                    <div class="stars">
-                     <img class="star-icon" src=" {{ merit.image.url }}">
-                    </div>
+            {% for merit in assets.merits %}
+                {#                    <h3>{{ merit.stage }}</h3>#}
+                <div class="stars">
+                    <img class="star-icon" src=" {{ merit.image.url }}">
+                </div>
 
-                {% endfor %}
+            {% endfor %}
 
             <hr>
 
@@ -55,17 +56,17 @@
                 <form action="/action_page.php">
                     <input class="modal-statement" type="checkbox" name="read-today" value="read-today">I read today!
                     <br>
-                    <input class="modal-statement" type="checkbox" name="clicked-words" value="clicked-words">I clicked the words!
+                    <input class="modal-statement" type="checkbox" name="clicked-words" value="clicked-words">I clicked
+                    the words!
                     <br>
-                    <input class="modal-statement" type="checkbox" name="clicked-audio" value="clicked-audio">I listened to the story!
+                    <input class="modal-statement" type="checkbox" name="clicked-audio" value="clicked-audio">I listened
+                    to the story!
                     <br><br>
                     <input type="submit">
                 </form>
 
             </div>
 
-
-            </p>
         </div>
 
     </div>

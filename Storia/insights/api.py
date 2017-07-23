@@ -20,7 +20,6 @@ class InteractionViewSet(viewsets.ModelViewSet):
     serializer_class = InteractionModelSerializer
 
 
-
 @api_view(['POST'])
 def create_interaction(request):
     """

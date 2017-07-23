@@ -2,8 +2,6 @@ from django.shortcuts import render
 from .models import Book, BookPage
 
 
-
-
 def story_page(request, book_slug, page_slug):
     """
     Directing layout assets to story_page.html (storybook page).

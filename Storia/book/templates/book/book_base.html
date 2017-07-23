@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Story Page</title>
+
+    <!-- custome css -->
     <link href="{% static "book/css/book.css" %}" rel="stylesheet">
 
     <!-- ajax -->
@@ -28,7 +30,7 @@
     <!----- add avatar ----->
     {% block avatar %}
 
-         {% include "book/avatar.html" %}
+        {% include "book/avatar.html" %}
 
     {% endblock %}
 
@@ -38,7 +40,7 @@
 
         <section class="chapter">
             <p>
-            {{ page.name }}
+                {{ page.name }}
             </p>
         </section>
 
@@ -63,15 +65,15 @@
 
         <section class="control-panel">
 
-            <button  id="video-play" class="control-buttons play-button">Play</button>
-            <button  id="video-pause" class="control-buttons pause-button">Pause</button>
+            <button id="video-play" class="control-buttons play-button">Play</button>
+            <button id="video-pause" class="control-buttons pause-button">Pause</button>
 
         </section>
         <section class="video-container">
 
             <video autoplay id="myvideo" poster="">
 
-{#                <source src="/media/Snowman Salsa/A Snowy Night/ss_scene_1.mp4" type="video/mp4">#}
+                {#<source src="/media/Snowman Salsa/A Snowy Night/ss_scene_1.mp4" type="video/mp4">#}
                 <source src="{{ assets.video.file.url }}" type="video/mp4">
                 Your browser does not support HTML5 video.
             </video>
@@ -81,23 +83,21 @@
 
     {#----- scripts -----#}
 
+    {# <!-- jQuery -->#}
+    <script src="{% static "book/vendor/js/jquery-3.2.1.min.js" %}"></script>
+    <script src="{% static "book/vendor/js/jquery.js" %}"></script>
 
-        {# <!-- jQuery -->#}
-        <script src="{% static "book/vendor/js/jquery-3.2.1.min.js" %}"></script>
-        <script src="{% static "book/vendor/js/jquery.js" %}"></script>
+    <script src="{% static "js/csrf.js" %}"></script>
 
-        <script src="{% static "js/csrf.js" %}"></script>
+    <!--jQuery UI-->
+    <script src="{% static "book/vendor/js/jquery-ui.min.js" %}"></script>
 
-            <!--jQuery UI-->
-        <script src="{% static "book/vendor/js/jquery-ui.min.js" %}"></script>
-
-         <!-- custom js -->
-        <script src="{% static "book/js/script.js" %}"></script>
-        <script src="{% static "book/js/story_book.js" %}"></script>
+    <!-- custom js -->
+    <script src="{% static "book/js/script.js" %}"></script>
+    <script src="{% static "book/js/story_book.js" %}"></script>
 
     {% block scripts %}
     {% endblock %}
-
 
 </body>
 

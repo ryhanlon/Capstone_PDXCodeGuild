@@ -35,37 +35,32 @@ body {
     font-size: 20px;
 }
 
+
 /*-----------------------------
         (block) feature
 -----------------------------*/
-
 .carousel-caption {
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 50%;
     width: auto;
-
 }
 
 
 /*-----------------------------
         (block) tagline
 -----------------------------*/
-
-
 body {
     background-color: rgba(204, 82, 0, 0.7);
     margin-top: 50px;
 }
 
 .base {
-
     /*margin: 0;*/
     padding-top: 0%;
     /*padding-bottom: 3%;*/
     /*background-color: rgba(27, 109, 133, .5);*/
     height: 100%;
     /*min-height: calc(100vh - 150);*/
-
 }
 
 
@@ -78,15 +73,13 @@ body {
     justify-content: space-around;
     align-items: center ;
     /*width: 80%;*/
-
 }
+
 .update-form  {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 80%;
-
-
 }
 
 .change-password-form {
@@ -94,7 +87,6 @@ body {
     flex-direction: column;
     justify-content: space-around;
     width: 80%;
-
 }
 
 .login_form {
@@ -102,10 +94,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     width: 80%;
-
 }
-
-
 
 
 /*-----------------------------
@@ -119,11 +108,4 @@ footer {
     justify-content: center;
     align-items: center;
     margin: 0px 0 0px 0;
-                         
-
 }
-
-/*#myvideo:-webkit-full-screen {*/
-  /*width: 100%;*/
-  /*height: 100%;*/
-/*}*/

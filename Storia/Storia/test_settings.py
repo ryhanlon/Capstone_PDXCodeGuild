@@ -12,4 +12,3 @@ DATABASES = {
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.locmen.EmailBackend'
-

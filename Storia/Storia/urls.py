@@ -18,8 +18,6 @@ from django.contrib import admin
 from pages.views import  home, about, contact
 from book.views import display_book, bookshelf, story_page
 
-
-
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers

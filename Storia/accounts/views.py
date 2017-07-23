@@ -7,7 +7,11 @@ from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 
+
 def login(request):
+    """
+    LogIn fields.
+    """
     if request.method == 'GET':
         form = AuthenticationForm()
 
@@ -26,11 +30,18 @@ def login(request):
 
 
 def logout(request):
+    """
+    LogOut fields.
+    """
     django_logout(request)
     return redirect('/')
 
 
 def register(request):
+    """
+    Registration form for new users.
+
+    """
 
     if request.method == 'GET':
         form = CustomUserCreationForm()

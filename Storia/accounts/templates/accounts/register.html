@@ -8,14 +8,15 @@
 
 {% endblock %}
 
+
 <!---------- Adds the registration form ---------->
 {% block feature %}
-<br>
+    <br>
     <br>
     <br>
 
     <form action="" method="POST">
-    {% csrf_token %}
+        {% csrf_token %}
 
         {{ form.as_p }}
 

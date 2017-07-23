@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -54,7 +55,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'Storia.urls'
+
 
 TEMPLATES = [
     {
@@ -65,8 +68,8 @@ TEMPLATES = [
                  os.path.join(BASE_DIR, 'pages', 'templates'),
                  os.path.join(BASE_DIR, 'insights', 'templates'),
 
-                 ]
-        ,
+                 ],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,6 +81,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'Storia.wsgi.application'
 
@@ -98,6 +102,7 @@ AUTH_USER_MODEL = 'accounts.User'
 
 
 LOGIN_REDIRECT_URL = '/accounts/profile/'
+
 
 LOGIN_URL = '/accounts/login/'
 
@@ -120,8 +125,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -141,10 +144,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     os.path.join(BASE_DIR, "book", "static"),
-    os.path.join(BASE_DIR, "library", "static"),
     os.path.join(BASE_DIR, "insights", "static"),
     os.path.join(BASE_DIR, "accounts", "static"),
     os.path.join(BASE_DIR, "pages", "static"),
@@ -153,8 +156,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -188,4 +189,3 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ADMINS = [('Rebecca', 'ryhanlon@gmail.com'),
           ]
-

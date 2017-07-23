@@ -5,7 +5,7 @@ pytestmark = pytest.mark.django_db
 
 class TestAssertion:
     """
-
+    Test models.
     """
     def test_truncator(self):
         """

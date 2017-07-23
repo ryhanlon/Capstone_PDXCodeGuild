@@ -61,7 +61,7 @@ _Story page_
 - Print of the story, read the word, and click each word to hear it pronounced
 - Avatar and modal window of Reading Chart to show picture of user and stars/badges.  
 
-Here is a sample of the Story page:
+Here are two samples of the Story page:
 ![Opening Story page Mockup](img/sp_opening.png)
 ![Story page Mockup](img/sp_words_icons.png)
 

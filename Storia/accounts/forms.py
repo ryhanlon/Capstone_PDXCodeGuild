@@ -6,7 +6,7 @@ from .models import User
 
 class CustomUserCreationForm(UserCreationForm):
     """
-
+    Creates the registration form and adds a nickname input field to the registration form.
 
     """
     nickname = forms.RegexField(label=('Nickname'), max_length=300,
@@ -24,6 +24,9 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class CustomUserUpdateForm(forms.ModelForm):
+    """
+    Creates the update form for users to change their username, nickname, first or last name.
+    """
 
     class Meta:
         model = User

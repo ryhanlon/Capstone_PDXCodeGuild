@@ -2,14 +2,14 @@
 
 
 
-{%  if request.user.is_authenticated %}
+{% if request.user.is_authenticated %}
 
     Hello, {{ request.user }}
     <a>Logout</a>
 
 {% else %}
 
-        <a>Register</a>
-        <a>LogIn</a>
+    <a>Register</a>
+    <a>LogIn</a>
 
 {% endif %}
